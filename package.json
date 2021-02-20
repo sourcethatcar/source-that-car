@@ -1,0 +1,39 @@
+{
+  "name": "source-that-car",
+  "version": "1.0.0",
+  "homepage": "https://github.com/suneet-codes/source-that-car/blob/main/readme.md",
+  "bugs": {
+    "email": "hello@suneet.codes",
+    "url": "https://github.com/suneet-codes/source-that-car/issues"
+  },
+  "description": "Suneet Misra <hello@suneet.codes> (https://suneet.codes)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/suneet-codes/source-that-car.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "next": "^10.0.7",
+    "prop-types": "^15.7.2",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "eslint": "^7.20.0",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-config-standard": "^16.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.3.1",
+    "eslint-plugin-react": "^7.22.0"
+  }
+}
