@@ -1,10 +1,16 @@
-import React from "react"
+import { Hero, Services, Testimonials, Contact, Footer } from "../components"
 
 const Home = () => {
   return (
-    <div>
-      <h1>Source That Car</h1>
-    </div>
+    <>
+      <Hero />
+      <Services as="section" id="services">
+        <h1>Our Service</h1>
+      </Services>
+      <Testimonials />
+      <Contact />
+      <Footer />
+    </>
   )
 }
 
