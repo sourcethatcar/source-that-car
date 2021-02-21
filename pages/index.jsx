@@ -2,7 +2,7 @@ import { Hero, Services, Testimonials, Contact, Footer } from "../components"
 
 const Home = () => {
   return (
-    <>
+    <div style={{ position: "relative" }}>
       <Hero />
       <Services as="section" id="services">
         <h1>Our Service</h1>
@@ -10,7 +10,7 @@ const Home = () => {
       <Testimonials />
       <Contact />
       <Footer />
-    </>
+    </div>
   )
 }
 

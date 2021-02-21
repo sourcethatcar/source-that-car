@@ -8,7 +8,7 @@ export const globalStyles = css`
     --colorYellow: #fca311;
   }
   html {
-    background-color: var(--colorBlue);
+    background-color: var(--colorGrey);
   }
   html,
   body {
