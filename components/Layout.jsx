@@ -5,7 +5,7 @@ export const Layout = styled.div`
 
   @media only screen and (min-width: 640px) {
     padding: 1.5rem 3rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
   @media only screen and (min-width: 992px) {

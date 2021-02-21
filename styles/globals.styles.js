@@ -15,8 +15,7 @@ export const globalStyles = css`
     padding: 0;
     margin: 0;
     font-size: 12px;
-    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-      Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    font-family: "Roboto", sans-serif;
   }
 
   a {
