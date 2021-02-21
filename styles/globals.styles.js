@@ -5,6 +5,7 @@ export const globalStyles = css`
     --colorBlue: #14213d;
     --colorWhite: #ffffff;
     --colorGrey: #e5e5e5;
+    --colorYellow: #fca311;
   }
   html,
   body {
@@ -28,6 +29,9 @@ export const globalStyles = css`
 
   h1 {
     font-size: 1.5rem;
+  }
+  ul {
+    list-style-type: none;
   }
 
   @media only screen and (min-width: 640px) {
