@@ -7,6 +7,9 @@ export const globalStyles = css`
     --colorGrey: #e5e5e5;
     --colorYellow: #fca311;
   }
+  html {
+    background-color: var(--colorBlue);
+  }
   html,
   body {
     padding: 0;
