@@ -8,7 +8,6 @@ const HeroWrapper = styled(Layout)`
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: red;
 
   h1 {
     color: blue;
