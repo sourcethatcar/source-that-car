@@ -1,15 +1,15 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 
-const ContactWrapper = styled(Layout)`
+const ContactWrapper = styled.section`
   background-color: var(--colorWhite);
 `
 export const Contact = () => {
   return (
-    <ContactWrapper as="section" id="contact">
-      <div>
+    <ContactWrapper id="contact">
+      <Layout>
         <h1>Contact</h1>
-      </div>
+      </Layout>
     </ContactWrapper>
   )
 }

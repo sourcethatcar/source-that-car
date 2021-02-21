@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 
-const FooterWrapper = styled(Layout)`
+const FooterWrapper = styled.footer`
   height: 100px;
   color: var(--colorWhite);
   background-color: var(--colorBlue);
@@ -9,9 +9,9 @@ const FooterWrapper = styled(Layout)`
 export const Footer = () => {
   return (
     <FooterWrapper id="footer" as="footer">
-      <div>
+      <Layout>
         <h1>Footer</h1>
-      </div>
+      </Layout>
     </FooterWrapper>
   )
 }

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 
-const TestimonialsWrapper = styled(Layout)`
+const TestimonialsWrapper = styled.section`
   background-color: var(--colorGrey);
 `
 export const Testimonials = () => {
   return (
-    <TestimonialsWrapper as="section" id="testimonials">
-      <div>
+    <TestimonialsWrapper id="testimonials">
+      <Layout>
         <h1>Testimonials</h1>
-      </div>
+      </Layout>
     </TestimonialsWrapper>
   )
 }
