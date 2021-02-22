@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 
 export const Layout = styled.div`
-  padding: 1.5rem 1.5rem;
+  padding: 1.5rem 2rem;
 
   @media only screen and (min-width: 640px) {
     padding: 1.5rem 3rem;

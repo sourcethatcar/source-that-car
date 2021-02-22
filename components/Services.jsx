@@ -10,18 +10,24 @@ const ServicesWrapper = styled.section`
     display: grid;
     column-gap: 6rem;
     row-gap: 5rem;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-template-columns: repeat(1, minmax(100px, 300px));
+    justify-content: center;
+    /* grid-template-columns: repeat(auto-fit, minmax(100px, 300px)); */
+    /* grid-auto-columns: minmax(max-content, 3fr); */
+  }
+  .description-item {
+    max-width: 300px;
   }
 
   .services-container {
     padding: 3rem 0;
   }
 
-  /* .services-container {
+  .services-container {
     h1 {
-      padding: 2rem 0;
+      padding-bottom: 1rem;
     }
-  } */
+  }
 
   .description-title {
     padding: 1rem 0;
@@ -39,6 +45,17 @@ const ServicesWrapper = styled.section`
     letter-spacing: 0em;
     text-align: left;
   }
+
+  @media only screen and (min-width: 640px) {
+    .description-container {
+      grid-template-columns: repeat(2, minmax(100px, 300px));
+    }
+  }
+  @media only screen and (min-width: 992px) {
+    .description-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
 `
 
 const Description = ({ children, title, icon }) => {
@@ -54,6 +71,7 @@ const Description = ({ children, title, icon }) => {
 Description.propTypes = {
   children: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
+  icon: PropTypes.object.isRequired,
 }
 
 export const Services = () => {
@@ -77,7 +95,7 @@ export const Services = () => {
               title="Financing"
               icon={<FaMoneyBillAlt fill="#fca311" size="2rem" />}
             >
-              We have a variety of finacning options available for you to choose
+              We have a variety of financing options available for you to choose
               from, at competitive rates. Part exchange of your current vehicle
               can also be handled by us making your next purchase experience a
               breeze!
