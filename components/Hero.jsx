@@ -1,9 +1,8 @@
 import styled from "@emotion/styled"
-import { Layout, Navigation } from "./index"
+import { Layout } from "./index"
 
 const HeroWrapper = styled.section`
   height: 100vh;
-  /* position: relative; */
   background-image: url("/images/mercedes.jpg");
   background-position: center;
   background-repeat: no-repeat;
@@ -32,7 +31,6 @@ const HeroWrapper = styled.section`
 export const Hero = () => {
   return (
     <HeroWrapper as="section" id="hero">
-      <Navigation />
       <Layout className="headline-container">
         <h1>Where will your next adventure take you?</h1>
       </Layout>

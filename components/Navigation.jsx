@@ -1,12 +1,12 @@
-import { useState } from "react"
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 import Logo from "../components/icons/Logo"
 
 const NavigationWrapper = styled.nav`
-  .fixed {
-    position: fixed;
-  }
+  position: absolute;
+  left: 0;
+  right: 0;
+
   .navLayout {
     display: flex;
     justify-content: center;
@@ -15,6 +15,10 @@ const NavigationWrapper = styled.nav`
   }
 
   .logo {
+    display: none;
+  }
+
+  .links-container {
     display: none;
   }
 
@@ -35,58 +39,6 @@ const NavigationWrapper = styled.nav`
     }
   }
 
-  .links-container {
-    display: none;
-  }
-
-  .mobileMenu {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    z-index: 100;
-    width: 100%;
-    background-color: var(--colorBlue);
-    color: var(--colorWhite);
-    display: grid;
-    grid-template-rows: 10vh 90vh;
-    transition: all 1s ease;
-  }
-  .inactive {
-    left: -100%;
-  }
-
-  .active {
-    left: 0;
-    transition: all 1s ease;
-  }
-
-  .close-button-container {
-    padding: 1.5rem 1.5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  .mobile-links-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    ul {
-      height: 80%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: flex-start;
-
-      li {
-        padding: 3rem 0;
-      }
-    }
-  }
-
   @media only screen and (min-width: 640px) {
     .navLayout {
       justify-content: space-between;
@@ -95,6 +47,7 @@ const NavigationWrapper = styled.nav`
     .mobileNavButton {
       display: none;
     }
+
     .logo {
       display: block;
       width: 3rem;
@@ -134,12 +87,7 @@ const NavigationWrapper = styled.nav`
   }
 `
 
-export const Navigation = () => {
-  const [clicked, setClicked] = useState(false)
-
-  const handleClick = () => setClicked(!clicked)
-  const handleMobileMenuClick = () => setClicked(false)
-
+export const Navigation = ({ toggleMenu }) => {
   return (
     <NavigationWrapper id="navigation">
       <Layout className="navLayout">
@@ -163,42 +111,10 @@ export const Navigation = () => {
             </li>
           </ul>
         </div>
-        <button className="mobileNavButton" onClick={handleClick}>
+        <button className="mobileNavButton" onClick={toggleMenu}>
           <Logo className="mobileLogo" />
         </button>
       </Layout>
-      {/* Markup for fullscreen mobile navigation - only visible when the logo is clicked on mobile view */}
-
-      <div className={clicked ? "mobileMenu active" : "mobileMenu inactive"}>
-        <div className="close-button-container">
-          <div className="fixed">
-            <button className="mobileNavButton" onClick={handleMobileMenuClick}>
-              <Logo className="mobileLogo" inverted />
-            </button>
-          </div>
-        </div>
-        <div className="mobile-links-container">
-          <div className="fixed">
-            <ul className="mobile-links">
-              <li>
-                <a href="#services" onClick={handleMobileMenuClick}>
-                  <h1>Our Service</h1>
-                </a>
-              </li>
-              <li>
-                <a href="#testimonials" onClick={handleMobileMenuClick}>
-                  <h1>Testimonials</h1>
-                </a>
-              </li>
-              <li className="contactButton" onClick={handleMobileMenuClick}>
-                <a href="#contact">
-                  <h1>Contact</h1>
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div>
     </NavigationWrapper>
   )
 }
