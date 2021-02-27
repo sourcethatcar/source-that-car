@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
-import { Layout } from "./Layout"
+import { Layout, Button } from "../components"
 import Logo from "../components/icons/Logo"
+import PropTypes from "prop-types"
 
 const NavigationWrapper = styled.nav`
   position: absolute;
@@ -77,7 +78,7 @@ const NavigationWrapper = styled.nav`
 
     .contactButton {
       color: var(--colorWhite);
-      h3 {
+      p {
         border-radius: 5px;
         background-color: var(--colorBlue);
         padding: 0.75rem 1.2rem;
@@ -96,18 +97,22 @@ export const Navigation = ({ toggleMenu }) => {
           <ul className="links">
             <li>
               <a href="#services">
-                <h3>Our Service</h3>
+                <strong>
+                  <p>Our Service</p>
+                </strong>
               </a>
             </li>
             <li>
               <a href="#testimonials">
-                <h3>Testimonials</h3>
+                <p>
+                  <strong>Testimonials</strong>
+                </p>
               </a>
             </li>
-            <li className="contactButton">
-              <a href="#contact">
-                <h3>Contact</h3>
-              </a>
+            <li>
+              <Button href="#contact" fontWeight="bold">
+                Contact
+              </Button>
             </li>
           </ul>
         </div>
@@ -117,4 +122,8 @@ export const Navigation = ({ toggleMenu }) => {
       </Layout>
     </NavigationWrapper>
   )
+}
+
+Navigation.propTypes = {
+  toggleMenu: PropTypes.func.isRequired,
 }
