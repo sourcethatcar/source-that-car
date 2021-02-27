@@ -1,4 +1,5 @@
 import styled from "@emotion/styled"
+import React from "react"
 import PropTypes from "prop-types"
 import { capitalize } from "../utils/utils"
 
@@ -26,21 +27,26 @@ const InputWrapper = styled.div`
   }
 `
 
-export const Input = ({ type, fieldName, placeholder, textArea }) => {
+export const Input = ({ type, fieldName, placeholder, textArea, formRef }) => {
   const labelText = capitalize(fieldName)
-
   return (
     <InputWrapper>
       <label htmlFor={fieldName}>
         {labelText}
         {textArea ? (
-          <textarea name={fieldName} id={fieldName} placeholder={placeholder} />
+          <textarea
+            name={fieldName}
+            id={fieldName}
+            placeholder={placeholder}
+            ref={formRef}
+          />
         ) : (
           <input
             type={type}
             id={fieldName}
             name={fieldName}
             placeholder={placeholder}
+            ref={formRef}
           />
         )}
       </label>
@@ -53,10 +59,12 @@ Input.propTypes = {
   fieldName: PropTypes.string,
   placeholder: PropTypes.string,
   textArea: PropTypes.bool,
+  formRef: PropTypes.func,
 }
 Input.defaultProps = {
   type: "text",
   fieldName: "placeholder",
   placeholder: "placeholder",
   textArea: false,
+  formRef: null,
 }
