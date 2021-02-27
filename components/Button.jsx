@@ -7,10 +7,8 @@ const ButtonWrapper = styled.button`
   color: var(--colorWhite);
   background-color: var(--colorBlue);
   border-radius: 5px;
-  p {
-    padding: 0.75rem 1.2rem;
-    font-weight: ${(props) => props.fontWeight};
-  }
+  padding: 0.75rem 1.2rem;
+  font-weight: ${(props) => props.fontWeight};
 `
 
 export const Button = ({
@@ -28,11 +26,11 @@ export const Button = ({
       type={type}
       fontWeight={fontWeight}
     >
-      <p>{children}</p>
+      {children}
     </ButtonWrapper>
   ) : (
     <ButtonWrapper as="a" href={href} fontWeight={fontWeight}>
-      <p>{children}</p>
+      {children}
     </ButtonWrapper>
   )
 }
@@ -53,4 +51,8 @@ Button.defaultProps = {
   type: "button",
   onClick: null,
   href: null,
+}
+
+export const Submit = (props) => {
+  return <ButtonWrapper as="input" type="submit" {...props} />
 }
