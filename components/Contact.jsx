@@ -49,26 +49,28 @@ export const Contact = () => {
                 fieldName="first-name"
                 placeholder="first name"
                 formRef={register({ required: true })}
+                errorState={errors["first-name"]}
               />
-              {errors["first-name"] && <span>This field is required</span>}
               <Input
                 type="text"
                 fieldName="last-name"
-                placeholder="last name"
-                formRef={register}
+                formRef={register({ required: true })}
+                errorState={errors["last-name"]}
               />
             </div>
             <Input
               type="email"
               fieldName="email"
               placeholder="email address"
-              formRef={register}
+              formRef={register({ required: true })}
+              errorState={errors.email}
             />
             <Input
               textArea
               fieldName="comments"
               placeholder="tell us how we can help..."
-              formRef={register}
+              formRef={register({ required: true })}
+              errorState={errors.comments}
             />
             <div className="buttonContainer">
               <Submit value="Get in Touch" fontWeight="bold" />

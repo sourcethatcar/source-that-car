@@ -25,9 +25,20 @@ const InputWrapper = styled.div`
     width: 100%;
     height: 100px;
   }
+
+  small {
+    color: red;
+  }
 `
 
-export const Input = ({ type, fieldName, placeholder, textArea, formRef }) => {
+export const Input = ({
+  type,
+  fieldName,
+  placeholder,
+  textArea,
+  formRef,
+  errorState,
+}) => {
   const labelText = capitalize(fieldName)
   return (
     <InputWrapper>
@@ -49,6 +60,11 @@ export const Input = ({ type, fieldName, placeholder, textArea, formRef }) => {
             ref={formRef}
           />
         )}
+        {errorState && (
+          <span>
+            <small>*This field is required</small>
+          </span>
+        )}
       </label>
     </InputWrapper>
   )
@@ -59,6 +75,7 @@ Input.propTypes = {
   fieldName: PropTypes.string,
   placeholder: PropTypes.string,
   textArea: PropTypes.bool,
+  errorState: PropTypes.object,
   formRef: PropTypes.func,
 }
 Input.defaultProps = {
@@ -67,4 +84,5 @@ Input.defaultProps = {
   placeholder: "placeholder",
   textArea: false,
   formRef: null,
+  errorState: null,
 }
