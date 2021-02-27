@@ -19,7 +19,7 @@ export const Button = ({
   fontWeight,
   onClick,
   type,
-  link,
+  href,
 }) => {
   return onClick ? (
     <ButtonWrapper
@@ -31,7 +31,7 @@ export const Button = ({
       <p>{children}</p>
     </ButtonWrapper>
   ) : (
-    <ButtonWrapper as="a" href={link}>
+    <ButtonWrapper as="a" href={href} fontWeight={fontWeight}>
       <p>{children}</p>
     </ButtonWrapper>
   )
@@ -43,7 +43,7 @@ Button.propTypes = {
   fontWeight: PropTypes.oneOf(["normal", "bold"]),
   type: PropTypes.string,
   onClick: PropTypes.func,
-  link: PropTypes.string,
+  href: PropTypes.string,
 }
 
 Button.defaultProps = {
@@ -52,5 +52,5 @@ Button.defaultProps = {
   fontWeight: "normal",
   type: "button",
   onClick: null,
-  link: null,
+  href: null,
 }
