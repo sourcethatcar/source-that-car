@@ -12,8 +12,6 @@ const ServicesWrapper = styled.section`
     row-gap: 5rem;
     grid-template-columns: repeat(1, minmax(100px, 300px));
     justify-content: center;
-    /* grid-template-columns: repeat(auto-fit, minmax(100px, 300px)); */
-    /* grid-auto-columns: minmax(max-content, 3fr); */
   }
   .description-item {
     max-width: 300px;
