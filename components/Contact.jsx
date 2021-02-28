@@ -5,14 +5,48 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 
+const fieldNames = {
+  firstName: "firstName",
+  lastName: "lastName",
+  email: "email",
+  comments: "comments",
+}
+
+const formProps = {
+  firstName: {
+    label: "First Name",
+    fieldName: fieldNames.firstName,
+    placeholder: "Johnny",
+  },
+  lastName: {
+    label: "Last Name",
+    fieldName: fieldNames.lastName,
+    placeholder: "Appleseed",
+  },
+  email: {
+    label: "Email",
+    fieldName: fieldNames.email,
+    placeholder: "j.appleseed@email.com",
+  },
+  comments: {
+    label: "Comments",
+    fieldName: fieldNames.comments,
+    placeholder: "tell us how we can help",
+  },
+}
+
 const validationSchema = yup.object().shape({
-  [`first-name`]: yup.string().required("* please provide your first name"),
-  [`last-name`]: yup.string().required("* please provide your last name"),
-  email: yup
+  [`${fieldNames.firstName}`]: yup
+    .string()
+    .required("* please provide your first name"),
+  [`${fieldNames.lastName}`]: yup
+    .string()
+    .required("* please provide your last name"),
+  [`${fieldNames.email}`]: yup
     .string()
     .email("* please provide a valid email address")
     .required("* please provide your email address"),
-  comments: yup
+  [`${fieldNames.comments}`]: yup
     .string()
     .min(
       10,
@@ -67,32 +101,28 @@ export const Contact = () => {
             <div className="name-fields">
               <Input
                 type="text"
-                fieldName="first-name"
-                placeholder="Johnny"
+                {...formProps.firstName}
                 formRef={register}
-                errorState={errors[`first-name`]}
+                errorState={errors[`${fieldNames.firstName}`]}
               />
               <Input
                 type="text"
-                fieldName="last-name"
-                placeholder="Appleseed"
+                {...formProps.lastName}
                 formRef={register}
-                errorState={errors[`last-name`]}
+                errorState={errors[`${fieldNames.lastName}`]}
               />
             </div>
             <Input
               type="email"
-              fieldName="email"
-              placeholder="j.appleseed@email.com"
+              {...formProps.email}
               formRef={register}
-              errorState={errors.email}
+              errorState={errors[`${fieldNames.email}`]}
             />
             <Input
               textArea
-              fieldName="comments"
-              placeholder="tell us how we can help..."
+              {...formProps.comments}
               formRef={register}
-              errorState={errors.comments}
+              errorState={errors[`${fieldNames.comments}`]}
             />
             <div className="buttonContainer">
               <Submit value="Get in Touch" fontWeight="bold" />
