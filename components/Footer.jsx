@@ -6,42 +6,46 @@ const FooterWrapper = styled.footer`
   color: var(--colorWhite);
   background-color: var(--colorBlue);
 
-  .footer-layout {
-    text-align: center;
+  .footer-layout,
+  .footer-items {
     height: 100%;
     width: 100%;
     display: flex;
     flex-direction: column;
+  }
+
+  .footer-layout {
+    justify-content: center;
+  }
+  .footer-items {
     justify-content: space-evenly;
     align-items: center;
   }
-
-  .grid4 span {
-    color: var(--colorYellow);
+  .right {
+    span {
+      color: var(--colorYellow);
+    }
   }
 
   @media only screen and (min-width: 640px) {
-    height: 100px;
-    .footer-layout {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr 1fr;
-      column-gap: 1rem;
+    .footer-items {
+      height: fit-content;
+      flex-direction: row;
+      justify-content: space-around;
+      align-items: flex-start;
     }
-    .grid1 {
-      justify-self: start;
-      align-self: center;
+    .footer-item {
+      display: flex;
+      align-items: flex-start;
     }
-    .grid2 {
-      justify-self: end;
-      align-self: center;
+    .left {
+      justify-content: flex-start;
     }
-    .grid3 {
-      justify-self: start;
-      align-self: center;
+    .center {
+      justify-content: center;
     }
-    .grid4 {
-      justify-self: end;
-      align-self: center;
+    .right {
+      justify-content: flex-end;
     }
   }
 `
@@ -49,14 +53,24 @@ export const Footer = () => {
   return (
     <FooterWrapper id="footer" as="footer">
       <Layout className="footer-layout">
-        <small className="grid1">
-          © 2021 Source That Car. All rights reserved
-        </small>
-        <small className="grid2">Privacy Policy</small>
-        <small className="grid3">Terms and Conditions</small>
-        <small className="grid4">
-          made by <span>suneet</span>.codes
-        </small>
+        <div className="footer-items">
+          <div className="footer-item left">
+            <small className="grid1">
+              © 2021 Source That Car. All rights reserved
+            </small>
+          </div>
+          <div className="footer-item center ">
+            <small className="grid2">Privacy Policy</small>{" "}
+          </div>
+          <div className="footer-item center ">
+            <small className="grid3">Terms and Conditions</small>
+          </div>
+          <div className="footer-item right">
+            <small>
+              made by <span>suneet</span>.codes
+            </small>
+          </div>
+        </div>
       </Layout>
     </FooterWrapper>
   )
