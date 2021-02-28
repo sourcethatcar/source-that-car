@@ -25,9 +25,12 @@ const InputWrapper = styled.div`
     width: 100%;
     height: 100px;
   }
-
+  span {
+    padding-top: 0.5rem;
+    padding-left: 0.5rem;
+  }
   small {
-    color: red;
+    color: var(--colorBlue);
   }
 `
 
@@ -58,11 +61,12 @@ export const Input = ({
             name={fieldName}
             placeholder={placeholder}
             ref={formRef}
+            inputMode="noValidate"
           />
         )}
         {errorState && (
           <span>
-            <small>*This field is required</small>
+            <small>{errorState?.message}</small>
           </span>
         )}
       </label>
