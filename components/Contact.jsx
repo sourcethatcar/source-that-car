@@ -4,6 +4,10 @@ import { Input, Submit } from "../components"
 import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
+import emailjs, { init } from "emailjs-com"
+
+// initiate emailjs with userID
+init("user_PSxsELoTavNdu73Wm8BGc")
 
 const fieldNames = {
   firstName: "firstName",
@@ -11,6 +15,7 @@ const fieldNames = {
   email: "email",
   comments: "comments",
 }
+console.log(typeof process.env.EMAIL_JS_USERID)
 
 const formProps = {
   firstName: {
@@ -91,7 +96,19 @@ export const Contact = () => {
     resolver: yupResolver(validationSchema),
     mode: "onTouched",
   })
-  const onSubmit = (data) => console.log(data)
+  const onSubmit = (data, e) => {
+    console.log({ data })
+    console.log({ event: e.target })
+    emailjs.sendForm("contact_service", "contact_form", e.target).then(
+      (result) => {
+        console.log(result.text)
+      },
+      (error) => {
+        console.log(error.text)
+      }
+    )
+  }
+
   return (
     <ContactWrapper id="contact">
       <Layout>
