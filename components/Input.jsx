@@ -22,7 +22,7 @@ const InputWrapper = styled.div`
   }
   input:focus,
   textarea:focus {
-    outline-color: var(--colorYellow);
+    outline-color: var(--colorBlue);
   }
 
   textarea {
