@@ -20,6 +20,10 @@ const InputWrapper = styled.div`
     padding: 1rem;
     width: 100%;
   }
+  input:focus,
+  textarea:focus {
+    outline-color: var(--colorYellow);
+  }
 
   textarea {
     width: 100%;
