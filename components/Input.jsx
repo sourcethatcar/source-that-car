@@ -1,7 +1,6 @@
 import styled from "@emotion/styled"
 import React from "react"
 import PropTypes from "prop-types"
-import { capitalize } from "../utils/utils"
 
 const InputWrapper = styled.div`
   flex-grow: 1;
@@ -45,12 +44,12 @@ export const Input = ({
   textArea,
   formRef,
   errorState,
+  label,
 }) => {
-  const labelText = capitalize(fieldName)
   return (
     <InputWrapper>
       <label htmlFor={fieldName}>
-        {labelText}
+        {label}
         {textArea ? (
           <textarea
             name={fieldName}
@@ -85,6 +84,7 @@ Input.propTypes = {
   textArea: PropTypes.bool,
   errorState: PropTypes.object,
   formRef: PropTypes.func,
+  label: PropTypes.string,
 }
 Input.defaultProps = {
   type: "text",
@@ -93,4 +93,5 @@ Input.defaultProps = {
   textArea: false,
   formRef: null,
   errorState: null,
+  label: "Label",
 }
