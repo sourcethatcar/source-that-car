@@ -1,3 +1,4 @@
+import { useState } from "react"
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 import { Input, Submit } from "../components"
@@ -15,7 +16,6 @@ const fieldNames = {
   email: "email",
   comments: "comments",
 }
-console.log(typeof process.env.EMAIL_JS_USERID)
 
 const formProps = {
   firstName: {
@@ -90,21 +90,36 @@ const ContactWrapper = styled.section`
       font-weight: normal;
     }
   }
+
+  .emailError {
+    padding-top: 1rem;
+    text-align: center;
+    width: 100%;
+    span {
+      font-weight: bold;
+      color: var(--colorBlue);
+      text-decoration: underline;
+    }
+  }
 `
 export const Contact = () => {
+  const [buttonLabel, setButtonLabel] = useState("Get in Touch")
+  const [emailError, setEmailError] = useState("")
+
   const { register, handleSubmit, errors } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onTouched",
   })
   const onSubmit = (data, e) => {
-    console.log({ data })
-    console.log({ event: e.target })
     emailjs.sendForm("contact_service", "contact_form", e.target).then(
       (result) => {
         console.log(result.text)
+        setButtonLabel("🚘 😀 🚘")
       },
       (error) => {
         console.log(error.text)
+        setButtonLabel("Oops!")
+        setEmailError(data.comments)
       }
     )
   }
@@ -142,8 +157,25 @@ export const Contact = () => {
               errorState={errors[`${fieldNames.comments}`]}
             />
             <div className="buttonContainer">
-              <Submit value="Get in Touch" fontWeight="bold" />
+              <Submit value={buttonLabel} fontWeight="bold" />
             </div>
+            {emailError && (
+              <div className="emailError">
+                <p>
+                  Sorry but we were not able to send this form at this time.
+                  Please click{" "}
+                  <span>
+                    <a
+                      href={`mailto: sourcethatcar@sky.com?subject=Website Enquiry&body=${emailError}`}
+                    >
+                      here
+                    </a>
+                  </span>{" "}
+                  to send your request in an email directly. Your message above
+                  will be copied over.
+                </p>
+              </div>
+            )}
           </form>
         </div>
       </Layout>
