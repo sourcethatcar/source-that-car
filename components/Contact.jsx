@@ -81,16 +81,6 @@ const ContactWrapper = styled.section`
     justify-content: center;
   }
 
-  .contactButton {
-    background-color: var(--colorBlue);
-    border-radius: 5px;
-
-    h3 {
-      padding: 0.75rem 1.2rem;
-      font-weight: normal;
-    }
-  }
-
   .emailError {
     padding-top: 1rem;
     text-align: center;
@@ -114,7 +104,7 @@ export const Contact = () => {
     emailjs.sendForm("contact_service", "contact_form", e.target).then(
       (result) => {
         console.log(result.text)
-        setButtonLabel("🚘 😀 🚘")
+        setButtonLabel("🚘 🚘 🚘")
       },
       (error) => {
         console.log(error.text)
