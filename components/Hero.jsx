@@ -3,10 +3,19 @@ import { Layout } from "./index"
 
 const HeroWrapper = styled.section`
   height: 100vh;
-  background-image: url("/images/mercedes.jpg");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  width: 100vw;
+
+  .hero-background-image {
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -10;
+    object-fit: cover;
+  }
 
   .headline-container {
     height: 100%;
@@ -31,6 +40,11 @@ const HeroWrapper = styled.section`
 export const Hero = () => {
   return (
     <HeroWrapper as="section" id="hero">
+      <img
+        className="hero-background-image"
+        src="/images/mercedes.jpg"
+        alt="hero-car"
+      />
       <Layout className="headline-container">
         <h1>Where will your next adventure take you?</h1>
       </Layout>
