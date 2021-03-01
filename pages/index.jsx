@@ -15,15 +15,15 @@ const Home = () => {
   const closeMenu = () => setClicked(false)
 
   return (
-    <div style={{ position: "relative" }}>
+    <div>
       <Navigation toggleMenu={toggleMenu} />
       <NavigationMobile clicked={clicked} closeMenu={closeMenu} />
-      <Hero />
-      <Services as="section" id="services">
-        <h1>Our Service</h1>
-      </Services>
-      <Testimonials />
-      <Contact />
+      <main>
+        <Hero />
+        <Services as="section" id="services" />
+        <Testimonials />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )
