@@ -8,7 +8,7 @@ import * as yup from "yup"
 import emailjs, { init } from "emailjs-com"
 
 // initiate emailjs with userID
-init("user_PSxsELoTavNdu73Wm8BGc")
+init(process.env.NEXT_PUBLIC__EMAILJS)
 
 const fieldNames = {
   firstName: "firstName",
