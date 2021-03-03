@@ -13,3 +13,4 @@ These are the costs associated with any libraries or services that the site make
 ## Tasks
 
 .1 [Favicons](https://sympli.io/blog/heres-everything-you-need-to-know-about-favicons-in-2020/)
+.2 Make sure to record the .env.local values somewhere in case the client loses their copy.
