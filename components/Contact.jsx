@@ -104,7 +104,7 @@ export const Contact = () => {
     emailjs.sendForm("contact_service", "contact_form", e.target).then(
       (result) => {
         console.log(result.text)
-        setButtonLabel("🚘 🚘 🚘")
+        setButtonLabel("Sent 🙂")
       },
       (error) => {
         console.log(error.text)
