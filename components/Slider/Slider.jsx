@@ -34,7 +34,7 @@ const SliderWrapper = styled.div`
     transition: all 0.25s ease-in-out;
   }
 
-  @media (max-width: 700px) {
+  @media (max-width: 640px) {
     height: 450px;
     width: 100%;
     & > button {
