@@ -3,7 +3,7 @@ import { Layout } from "./index"
 
 const HeroWrapper = styled.section`
   height: 100vh;
-  width: 100vw;
+  width: 100%;
 
   .hero-background-image {
     width: 100%;
