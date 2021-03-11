@@ -57,16 +57,16 @@ const Avatar = styled.div`
   }
 `
 
-export const Slide = ({ content, offset }) => {
+export const Slide = ({ content: { profileImg, author, text }, offset }) => {
   return (
     <SlideWrapper offset={offset}>
       <div className="card-container">
         <div className="card">
           <Avatar>
-            <img src={content.profileImg} alt={content.author} />
+            <img src={profileImg} alt={author} />
           </Avatar>
-          <p className="slide-text">{content.text}</p>
-          <h5 className="slide-author">{content.author}</h5>
+          <p className="slide-text">{`"${text}"`}</p>
+          <h5 className="slide-author">{author}</h5>
         </div>
       </div>
     </SlideWrapper>
