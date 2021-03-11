@@ -92,7 +92,7 @@ const NavigationMobileWrapper = styled.nav`
   position: absolute;
   top: 0;
   bottom: 0;
-  left: ${(props) => (props.clicked ? "0" : "-100%")};
+  left: ${({ clicked }) => (clicked ? "0" : "-100%")};
   right: 0;
   z-index: 100;
   width: 100%;
