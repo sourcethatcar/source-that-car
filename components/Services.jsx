@@ -81,7 +81,7 @@ export const Services = () => {
           <div className="description-container">
             <Description
               title="Your Choice, Your Car"
-              icon={<FaCarSide fill="#fca311" size="2rem" />}
+              icon={<FaCarSide fill="#fca311" size="32px" />}
             >
               We’re a family-run company based in Kent, UK with strong
               relationships with local dealerships, built up over many years.
@@ -91,7 +91,7 @@ export const Services = () => {
             </Description>
             <Description
               title="Financing"
-              icon={<FaMoneyBillAlt fill="#fca311" size="2rem" />}
+              icon={<FaMoneyBillAlt fill="#fca311" size="32px" />}
             >
               We have a variety of financing options available for you to choose
               from, at competitive rates. Part exchange of your current vehicle
@@ -100,7 +100,7 @@ export const Services = () => {
             </Description>
             <Description
               title="Bespoke Service"
-              icon={<FaHandshake fill="#fca311" size="2rem" />}
+              icon={<FaHandshake fill="#fca311" size="32px" />}
             >
               Your requirements are at the core of the service that we provide.
               We work directly with you to determine the next car of yor dreams,
