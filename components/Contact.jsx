@@ -100,16 +100,18 @@ export const Contact = () => {
     resolver: yupResolver(validationSchema),
     mode: "onTouched",
   })
-  const onSubmit = (data, e) => {
-    emailjs.sendForm("contact_service", "contact_form", e.target).then(
-      (result) => {
-        console.log(result.text)
+  const onSubmit = ({ comments }, { target }) => {
+    emailjs.sendForm("contact_service", "contact_form", target).then(
+      /** on success */
+      ({ text }) => {
+        console.log(text)
         setButtonLabel("Sent 🙂")
       },
-      (error) => {
-        console.log(error.text)
+      /** on error */
+      ({ text }) => {
+        console.log(text)
         setButtonLabel("Oops!")
-        setEmailError(data.comments)
+        setEmailError(comments)
       }
     )
   }
