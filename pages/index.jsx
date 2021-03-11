@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   Hero,
   Services,
@@ -6,18 +5,12 @@ import {
   Contact,
   Footer,
   Navigation,
-  NavigationMobile,
 } from "../components"
 
 const Home = () => {
-  const [clicked, setClicked] = useState(false)
-  const toggleMenu = () => setClicked(!clicked)
-  const closeMenu = () => setClicked(false)
-
   return (
     <div>
-      <Navigation toggleMenu={toggleMenu} />
-      <NavigationMobile clicked={clicked} closeMenu={closeMenu} />
+      <Navigation />
       <main>
         <Hero />
         <Services as="section" id="services" />

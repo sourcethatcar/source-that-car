@@ -1,0 +1,21 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "Orientation",
+  "steps": [
+    {
+      "file": "pages/_app.jsx",
+      "description": "This is the <head/> of the project. Within here I've added a modern-normalize, brought in the site font from a CDN and added some metadata for exporting social media cards and for the site favicon.",
+      "line": 9
+    },
+    {
+      "file": "pages/_app.jsx",
+      "description": "Global styles have been added here through using @emotion/react's Global component.",
+      "line": 42
+    },
+    {
+      "file": "pages/_app.jsx",
+      "description": "This <Component /> represents the component tree rendered within the index.jsx.",
+      "line": 43
+    }
+  ]
+}

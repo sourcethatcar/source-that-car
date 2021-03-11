@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 
+/** Styled <button/>  */
 const ButtonWrapper = styled.button`
   all: unset;
   cursor: pointer;
@@ -8,9 +9,14 @@ const ButtonWrapper = styled.button`
   background-color: var(--colorBlue);
   border-radius: 5px;
   padding: 0.75rem 1.2rem;
-  font-weight: ${(props) => props.fontWeight};
+  font-weight: ${({ fontWeight }) => fontWeight};
 `
+/** component that renders as a type "submit" <button/> */
+export const Submit = (props) => {
+  return <ButtonWrapper as="input" type="submit" {...props} />
+}
 
+/** component that renders as either a <button/> or as an <a/> */
 export const Button = ({
   children,
   className,
@@ -51,8 +57,4 @@ Button.defaultProps = {
   type: "button",
   onClick: null,
   href: null,
-}
-
-export const Submit = (props) => {
-  return <ButtonWrapper as="input" type="submit" {...props} />
 }
