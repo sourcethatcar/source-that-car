@@ -2,6 +2,7 @@ import { useState } from "react"
 import styled from "@emotion/styled"
 import { Layout, Button } from "../components"
 import Logo from "../components/icons/Logo"
+import { breakpoints } from "../styles"
 import PropTypes from "prop-types"
 
 const NavigationWrapper = styled.nav`
@@ -41,7 +42,7 @@ const NavigationWrapper = styled.nav`
     }
   }
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     .navLayout {
       justify-content: space-between;
     }
@@ -157,7 +158,7 @@ const NavigationMobileWrapper = styled.nav`
       }
     }
   }
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     .mobileNavButton {
       display: none;
     }

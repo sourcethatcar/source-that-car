@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
+import { breakpoints } from "../styles"
 
 const FooterWrapper = styled.footer`
   height: 150px;
@@ -27,7 +28,7 @@ const FooterWrapper = styled.footer`
     }
   }
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     .footer-items {
       height: fit-content;
       flex-direction: row;
