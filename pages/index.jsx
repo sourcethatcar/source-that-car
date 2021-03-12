@@ -13,7 +13,7 @@ const Home = () => {
       <Navigation />
       <main>
         <Hero />
-        <Services as="section" id="services" />
+        <Services />
         <Testimonials />
         <Contact />
       </main>

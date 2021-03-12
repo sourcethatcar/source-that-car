@@ -5,6 +5,7 @@ import PropTypes from "prop-types"
 import { Dots } from "./Dots"
 import { Slide } from "./Slide"
 import { SliderButton } from "./SliderButton"
+import { breakpoints } from "../../styles"
 
 const SliderWrapper = styled.div`
   position: relative;
@@ -34,7 +35,7 @@ const SliderWrapper = styled.div`
     transition: all 0.25s ease-in-out;
   }
 
-  @media (max-width: 640px) {
+  @media (max-width: ${breakpoints.tablet}) {
     height: 450px;
     width: 100%;
     & > button {

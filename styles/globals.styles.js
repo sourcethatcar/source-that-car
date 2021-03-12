@@ -1,5 +1,10 @@
 import { css } from "@emotion/react"
 
+export const breakpoints = {
+  tablet: "640px",
+  desktop: "992px",
+}
+
 export const globalStyles = css`
   :root {
     --colorBlue: #14213d;
@@ -36,14 +41,14 @@ export const globalStyles = css`
     list-style-type: none;
   }
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     html,
     body {
       font-size: 14px;
     }
   }
 
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: ${breakpoints.desktop}) {
     html,
     body {
       font-size: 16px;

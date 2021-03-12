@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import { Layout } from "./Layout"
+import { breakpoints } from "../styles"
 import { FaCarSide, FaMoneyBillAlt, FaHandshake } from "react-icons/fa"
 
 const ServicesWrapper = styled.section`
@@ -44,12 +45,12 @@ const ServicesWrapper = styled.section`
     text-align: left;
   }
 
-  @media only screen and (min-width: 640px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     .description-container {
       grid-template-columns: repeat(2, minmax(100px, 300px));
     }
   }
-  @media only screen and (min-width: 992px) {
+  @media only screen and (min-width: ${breakpoints.tablet}) {
     .description-container {
       grid-template-columns: repeat(3, 1fr);
     }
