@@ -16,7 +16,6 @@ const NavigationWrapper = styled.nav`
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: lightgreen;
   }
 
   .logo,
@@ -90,7 +89,7 @@ const MobileDrawerWrapper = styled.nav`
   z-index: 100;
   width: 100%;
   background-color: var(--colorBlue);
-  transition: left 0.5s ease-in;
+  transition: left 0.25s ease-in;
   color: var(--colorWhite);
 
   .mobile-drawer-layout {
