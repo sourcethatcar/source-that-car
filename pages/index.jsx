@@ -5,6 +5,7 @@ import {
   Contact,
   Footer,
   Navigation,
+  About,
 } from "../components"
 
 const App = () => {
@@ -13,6 +14,7 @@ const App = () => {
       <Navigation />
       <main>
         <Hero />
+        <About />
         <Services />
         <Testimonials />
         <Contact />

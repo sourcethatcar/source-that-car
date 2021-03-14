@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { Layout, Button } from "../components"
-import Logo from "../components/icons/Logo"
-import { GiHamburgerMenu } from "react-icons/gi"
+import { IoMenu } from "react-icons/io5"
+import { FaFacebookSquare, FaInstagramSquare } from "react-icons/fa"
 import { breakpoints } from "../styles"
 import PropTypes from "prop-types"
 
@@ -18,6 +18,12 @@ const NavigationWrapper = styled.nav`
     width: 100%;
   }
 
+  .logo-text {
+    text-transform: capitalize;
+    font-style: italic;
+    color: var(--colorBlue);
+  }
+
   .logo,
   .mobile-hamburger {
     width: 3rem;
@@ -29,7 +35,7 @@ const NavigationWrapper = styled.nav`
     background-color: transparent;
     cursor: pointer;
     svg {
-      fill: var(--colorBlue);
+      color: var(--colorBlue);
       height: 100%;
       width: 100%;
     }
@@ -88,6 +94,11 @@ const MobileDrawerWrapper = styled.nav`
   transition: left 0.25s ease-in;
   color: var(--colorWhite);
 
+  .logo-text {
+    text-transform: capitalize;
+    font-style: italic;
+  }
+
   .mobile-drawer-layout {
     height: 100%;
   }
@@ -110,14 +121,14 @@ const MobileDrawerWrapper = styled.nav`
     background-color: transparent;
     cursor: pointer;
     svg {
-      fill: var(--colorWhite);
+      color: var(--colorWhite);
       height: 100%;
       width: 100%;
     }
   }
 
   .mobile-drawer-links-container {
-    height: 100%;
+    height: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -145,6 +156,17 @@ const MobileDrawerWrapper = styled.nav`
       border: 1px solid var(--colorWhite);
     }
   }
+  .social-icons-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    svg {
+      color: white;
+      height: 2rem;
+      width: 2rem;
+      margin: 0.5rem;
+    }
+  }
 `
 
 export const Navigation = () => {
@@ -157,9 +179,16 @@ export const Navigation = () => {
     <>
       <NavigationWrapper id="navigation">
         <Layout className="navLayout">
-          <Logo className="logo" />
+          <h1 className="logo-text">Source That Car</h1>
           <div className="links-container">
             <ul className="links">
+              <li>
+                <a href="#about">
+                  <strong>
+                    <p>About Us</p>
+                  </strong>
+                </a>
+              </li>
               <li>
                 <a href="#services">
                   <strong>
@@ -182,7 +211,7 @@ export const Navigation = () => {
             </ul>
           </div>
           <button className="mobile-hamburger" onClick={toggleMenu}>
-            <GiHamburgerMenu />
+            <IoMenu />
           </button>
         </Layout>
       </NavigationWrapper>
@@ -201,13 +230,18 @@ const MobileDrawer = ({ isDrawerOpen, closeMenu }) => {
     <MobileDrawerWrapper id="mobile-drawer" isDrawerOpen={isDrawerOpen}>
       <Layout className="mobile-drawer-layout">
         <div className="navLayout">
-          <Logo className="logo" inverted />
+          <h1 className="logo-text">Source That Car</h1>
           <button className="mobile-hamburger" onClick={closeMenu}>
-            <GiHamburgerMenu />
+            <IoMenu />
           </button>
         </div>
         <div className="mobile-drawer-links-container">
           <ul className="mobile-drawer-links">
+            <li>
+              <a href="#aboutUs" onClick={closeMenu}>
+                <h1>About Us</h1>
+              </a>
+            </li>
             <li>
               <a href="#services" onClick={closeMenu}>
                 <h1>Our Service</h1>
@@ -224,6 +258,10 @@ const MobileDrawer = ({ isDrawerOpen, closeMenu }) => {
               </a>
             </li>
           </ul>
+        </div>
+        <div className="social-icons-container">
+          <FaFacebookSquare />
+          <FaInstagramSquare />
         </div>
       </Layout>
     </MobileDrawerWrapper>

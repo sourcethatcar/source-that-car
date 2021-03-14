@@ -63,6 +63,10 @@ const validationSchema = yup.object().shape({
 const ContactWrapper = styled.section`
   background-color: var(--colorWhite);
 
+  h1 {
+    padding-top: 3rem;
+  }
+
   .form-container {
     max-width: 800px;
     margin: 0 auto;
