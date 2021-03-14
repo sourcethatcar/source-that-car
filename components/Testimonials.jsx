@@ -7,7 +7,7 @@ const TestimonialsWrapper = styled.section`
   width: 100%;
   .testimonials-layout {
     h1 {
-      padding-bottom: 2rem;
+      padding: 3rem 0;
     }
   }
 `
