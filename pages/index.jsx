@@ -1,3 +1,4 @@
+import { useState } from "react"
 import {
   Hero,
   Services,
@@ -6,11 +7,16 @@ import {
   Footer,
   Navigation,
 } from "../components"
+import { Global } from "@emotion/react"
+import { globalStyles } from "../styles"
 
 const Home = () => {
+  const [clicked, setClicked] = useState(false)
+
   return (
     <div>
-      <Navigation />
+      <Global styles={globalStyles(clicked)} />
+      <Navigation setClicked={setClicked} clicked={clicked} />
       <main>
         <Hero />
         <Services />

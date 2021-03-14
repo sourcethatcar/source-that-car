@@ -2,6 +2,7 @@ import { useState } from "react"
 import styled from "@emotion/styled"
 import { Layout, Button } from "../components"
 import Logo from "../components/icons/Logo"
+import { GiHamburgerMenu } from "react-icons/gi"
 import { breakpoints } from "../styles"
 import PropTypes from "prop-types"
 
@@ -12,34 +13,31 @@ const NavigationWrapper = styled.nav`
 
   .navLayout {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
+    background-color: lightgreen;
   }
 
-  .logo {
-    display: none;
+  .logo,
+  .mobile-hamburger {
+    width: 3rem;
+    height: 3rem;
+  }
+
+  .mobile-hamburger {
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    svg {
+      fill: var(--colorBlue);
+      height: 100%;
+      width: 100%;
+    }
   }
 
   .links-container {
     display: none;
-  }
-
-  .mobileNavButton {
-    width: 4rem;
-    height: 4rem;
-    border: none;
-    background-color: transparent;
-
-    svg {
-      width: inherit;
-      height: inherit;
-    }
-    &:hover,
-    :focus {
-      cursor: pointer;
-      outline: none;
-    }
   }
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
@@ -47,14 +45,8 @@ const NavigationWrapper = styled.nav`
       justify-content: space-between;
     }
 
-    .mobileNavButton {
+    .mobile-hamburger {
       display: none;
-    }
-
-    .logo {
-      display: block;
-      width: 3rem;
-      height: 3rem;
     }
 
     .links-container {
@@ -89,8 +81,8 @@ const NavigationWrapper = styled.nav`
     }
   }
 `
-const NavigationMobileWrapper = styled.nav`
-  position: absolute;
+const MobileDrawerWrapper = styled.nav`
+  position: fixed;
   top: 0;
   bottom: 0;
   left: ${({ clicked }) => (clicked ? "0" : "-100%")};
@@ -98,75 +90,69 @@ const NavigationMobileWrapper = styled.nav`
   z-index: 100;
   width: 100%;
   background-color: var(--colorBlue);
-  transition: all 1s ease;
+  transition: left 0.5s ease-in;
   color: var(--colorWhite);
-  display: grid;
-  grid-template-rows: 10vh 90vh;
-  overflow: hidden;
 
-  .inactive {
-    left: -100%;
+  .mobile-drawer-layout {
+    height: 100%;
   }
 
-  .active {
-    left: 0;
-  }
-
-  .close-button-container {
-    padding: 1.5rem 1.5rem;
+  .navLayout {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
+    width: 100%;
   }
 
-  .fixed {
-    position: fixed;
+  .logo,
+  .mobile-hamburger {
+    width: 3rem;
+    height: 3rem;
   }
 
-  .mobileNavButton {
-    width: 4rem;
-    height: 4rem;
+  .mobile-hamburger {
     border: none;
     background-color: transparent;
-
+    cursor: pointer;
     svg {
-      width: inherit;
-      height: inherit;
-    }
-    &:hover,
-    :focus {
-      cursor: pointer;
-      outline: none;
+      fill: var(--colorWhite);
+      height: 100%;
+      width: 100%;
     }
   }
 
-  .mobile-links-container {
+  .mobile-drawer-links-container {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     ul {
-      height: 80%;
+      height: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      justify-content: center;
 
       li {
         padding: 3rem 0;
       }
     }
   }
-  @media only screen and (min-width: ${breakpoints.tablet}) {
-    .mobileNavButton {
-      display: none;
+
+  .contactButton {
+    color: var(--colorWhite);
+    h1 {
+      border-radius: 5px;
+      background-color: var(--colorBlue);
+      padding: 0.75rem 1.2rem;
+      border: 1px solid var(--colorWhite);
     }
   }
 `
 
-export const Navigation = () => {
-  const [clicked, setClicked] = useState(false)
+export const Navigation = ({ setClicked, clicked }) => {
   const toggleMenu = () => setClicked(!clicked)
   const closeMenu = () => setClicked(false)
 
@@ -198,29 +184,28 @@ export const Navigation = () => {
               </li>
             </ul>
           </div>
-          <button className="mobileNavButton" onClick={toggleMenu}>
-            <Logo className="mobileLogo" />
+          <button className="mobile-hamburger" onClick={toggleMenu}>
+            <GiHamburgerMenu />
           </button>
         </Layout>
       </NavigationWrapper>
-      {clicked && <NavigationMobile clicked={clicked} closeMenu={closeMenu} />}
+      <MobileDrawer clicked={clicked} closeMenu={closeMenu} />
     </>
   )
 }
 
-const NavigationMobile = ({ clicked, closeMenu }) => {
+const MobileDrawer = ({ clicked, closeMenu }) => {
   return (
-    <NavigationMobileWrapper id="navigation-mobile" clicked={clicked}>
-      <div className="close-button-container">
-        <div className="fixed">
-          <button className="mobileNavButton" onClick={closeMenu}>
-            <Logo className="mobileLogo" inverted />
+    <MobileDrawerWrapper id="mobile-drawer" clicked={clicked}>
+      <Layout className="mobile-drawer-layout">
+        <div className="navLayout">
+          <Logo className="logo" inverted />
+          <button className="mobile-hamburger" onClick={closeMenu}>
+            <GiHamburgerMenu />
           </button>
         </div>
-      </div>
-      <div className="mobile-links-container">
-        <div className="fixed">
-          <ul className="mobile-links">
+        <div className="mobile-drawer-links-container">
+          <ul className="mobile-drawer-links">
             <li>
               <a href="#services" onClick={closeMenu}>
                 <h1>Our Service</h1>
@@ -238,12 +223,12 @@ const NavigationMobile = ({ clicked, closeMenu }) => {
             </li>
           </ul>
         </div>
-      </div>
-    </NavigationMobileWrapper>
+      </Layout>
+    </MobileDrawerWrapper>
   )
 }
 
-NavigationMobile.propTypes = {
+MobileDrawer.propTypes = {
   clicked: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,
 }
