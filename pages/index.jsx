@@ -1,4 +1,3 @@
-import { useState } from "react"
 import {
   Hero,
   Services,
@@ -7,16 +6,11 @@ import {
   Footer,
   Navigation,
 } from "../components"
-import { Global } from "@emotion/react"
-import { globalStyles } from "../styles"
 
-const Home = () => {
-  const [clicked, setClicked] = useState(false)
-
+const App = () => {
   return (
     <div>
-      <Global styles={globalStyles(clicked)} />
-      <Navigation setClicked={setClicked} clicked={clicked} />
+      <Navigation />
       <main>
         <Hero />
         <Services />
@@ -28,4 +22,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default App

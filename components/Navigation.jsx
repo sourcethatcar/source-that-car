@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import styled from "@emotion/styled"
 import { Layout, Button } from "../components"
 import Logo from "../components/icons/Logo"
@@ -40,10 +40,6 @@ const NavigationWrapper = styled.nav`
   }
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
-    .navLayout {
-      justify-content: space-between;
-    }
-
     .mobile-hamburger {
       display: none;
     }
@@ -84,7 +80,7 @@ const MobileDrawerWrapper = styled.nav`
   position: fixed;
   top: 0;
   bottom: 0;
-  left: ${({ clicked }) => (clicked ? "0" : "-100%")};
+  left: ${({ isDrawerOpen }) => (isDrawerOpen ? "0" : "-100%")};
   right: 0;
   z-index: 100;
   width: 100%;
@@ -151,9 +147,11 @@ const MobileDrawerWrapper = styled.nav`
   }
 `
 
-export const Navigation = ({ setClicked, clicked }) => {
-  const toggleMenu = () => setClicked(!clicked)
-  const closeMenu = () => setClicked(false)
+export const Navigation = () => {
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
+
+  const toggleMenu = () => setIsDrawerOpen(!isDrawerOpen)
+  const closeMenu = () => setIsDrawerOpen(false)
 
   return (
     <>
@@ -188,14 +186,19 @@ export const Navigation = ({ setClicked, clicked }) => {
           </button>
         </Layout>
       </NavigationWrapper>
-      <MobileDrawer clicked={clicked} closeMenu={closeMenu} />
+      <MobileDrawer isDrawerOpen={isDrawerOpen} closeMenu={closeMenu} />
     </>
   )
 }
 
-const MobileDrawer = ({ clicked, closeMenu }) => {
+const MobileDrawer = ({ isDrawerOpen, closeMenu }) => {
+  /**  change <body/> overflow value when drawer is open */
+  useEffect(() => {
+    document.body.style.overflow = isDrawerOpen ? "hidden" : "scroll"
+  }, [isDrawerOpen])
+
   return (
-    <MobileDrawerWrapper id="mobile-drawer" clicked={clicked}>
+    <MobileDrawerWrapper id="mobile-drawer" isDrawerOpen={isDrawerOpen}>
       <Layout className="mobile-drawer-layout">
         <div className="navLayout">
           <Logo className="logo" inverted />
@@ -228,6 +231,6 @@ const MobileDrawer = ({ clicked, closeMenu }) => {
 }
 
 MobileDrawer.propTypes = {
-  clicked: PropTypes.bool.isRequired,
+  isDrawerOpen: PropTypes.bool.isRequired,
   closeMenu: PropTypes.func.isRequired,
 }

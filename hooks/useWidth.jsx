@@ -15,7 +15,6 @@ export const useWidth = (elementRef) => {
   const [width, setWidth] = useState(0)
 
   useEffect(() => {
-    console.log("useWidth Ran")
     /** create a function to retrieve the width value from the DOM element being watched  */
     const getWidth = () => elementRef.current.getBoundingClientRect().width
 
