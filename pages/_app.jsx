@@ -1,12 +1,15 @@
 import PropTypes from "prop-types"
 import { Header } from "../components"
+import { globalStyles } from "../styles"
+import { Global } from "@emotion/react"
 
 const MyApp = ({ Component, pageProps }) => {
   return (
-    <div>
+    <>
+      <Global styles={globalStyles} />
       <Header />
       <Component {...pageProps} />
-    </div>
+    </>
   )
 }
 
