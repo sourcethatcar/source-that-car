@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import PropTypes from "prop-types"
 import { Layout } from "./Layout"
 import { breakpoints } from "../styles"
-import { FaCarSide, FaMoneyBillAlt, FaHandshake } from "react-icons/fa"
+import { FaCarSide, FaHandshake, FaGift, FaHeart } from "react-icons/fa"
 
 const ServicesWrapper = styled.section`
   background-color: var(--colorWhite);
@@ -15,7 +15,8 @@ const ServicesWrapper = styled.section`
     justify-content: center;
   }
   .description-item {
-    max-width: 300px;
+    max-width: 400px;
+    justify-self: center;
   }
 
   .services-container {
@@ -34,6 +35,11 @@ const ServicesWrapper = styled.section`
 
   .icon-container {
     padding-top: 2rem;
+    svg {
+      width: 2rem;
+      height: 2rem;
+      fill: var(--colorYellow);
+    }
   }
 
   .description-text {
@@ -47,12 +53,8 @@ const ServicesWrapper = styled.section`
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
     .description-container {
-      grid-template-columns: repeat(2, minmax(100px, 300px));
-    }
-  }
-  @media only screen and (min-width: ${breakpoints.tablet}) {
-    .description-container {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
     }
   }
 `
@@ -80,33 +82,27 @@ export const Services = () => {
         <div className="services-container">
           <h1>Our Service</h1>
           <div className="description-container">
-            <Description
-              title="Your Choice, Your Car"
-              icon={<FaCarSide fill="#fca311" size="32px" />}
-            >
-              We’re a family-run company based in Kent, UK with strong
-              relationships with local dealerships, built up over many years.
-              This means that we’re able to source your next new or used
-              vehicle, often with large discounts as compared to dealership
-              prices.
+            <Description title="Your Choice, Your Car" icon={<FaCarSide />}>
+              Let us know the manufacturer, model and specification of the car
+              you want, then sit back and relax - we will do the rest!
+              Alternatively, if you are unsure, we can discuss and advise
+              various options with you .
             </Description>
-            <Description
-              title="Financing"
-              icon={<FaMoneyBillAlt fill="#fca311" size="32px" />}
-            >
-              We have a variety of financing options available for you to choose
-              from, at competitive rates. Part exchange of your current vehicle
-              can also be handled by us making your next purchase experience a
-              breeze!
+            <Description title="New Cars" icon={<FaGift />}>
+              All cars are HPI checked, sourced from a UK dealer, and come with
+              a full manufacturers’ warranty and roadside assistance. In the
+              event of a warranty claim, any authorised dealership throughout
+              the UK can help.
             </Description>
-            <Description
-              title="Bespoke Service"
-              icon={<FaHandshake fill="#fca311" size="32px" />}
-            >
-              Your requirements are at the core of the service that we provide.
-              We work directly with you to determine the next car of yor dreams,
-              and then we leverage our partner network to find it at the best
-              price possible. We do the hard work, so that you don’t have to.
+            <Description title="Pre-owned Cars" icon={<FaHeart />}>
+              Furthermore, used cars are supplied with a ‘Warrantywise’ warranty
+              and in the unlikely event of a claim any work can be carried out
+              by your local service centre
+            </Description>
+            <Description title="Bespoke Service" icon={<FaHandshake />}>
+              Sourcethatcar provides a bespoke service sourcing new and used
+              cars at a competitive price, removing the time and hassle out of
+              searching for your new or used car.
             </Description>
           </div>
         </div>
