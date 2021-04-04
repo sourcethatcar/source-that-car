@@ -15,8 +15,15 @@ const ServicesWrapper = styled.section`
     justify-content: center;
   }
   .description-item {
-    max-width: 400px;
+    max-width: 350px;
     justify-self: center;
+  }
+
+  .description-title-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    /* background-color: lightgreen; */
   }
 
   .services-container {
@@ -34,7 +41,7 @@ const ServicesWrapper = styled.section`
   }
 
   .icon-container {
-    padding-top: 2rem;
+    padding-right: 1rem;
     svg {
       width: 2rem;
       height: 2rem;
@@ -55,6 +62,7 @@ const ServicesWrapper = styled.section`
     .description-container {
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
+      grid-column-gap: 3rem;
     }
   }
 `
@@ -62,8 +70,10 @@ const ServicesWrapper = styled.section`
 const Description = ({ children, title, icon }) => {
   return (
     <div className="description-item">
-      <div className="icon-container">{icon}</div>
-      <h3 className="description-title">{title}</h3>
+      <div className="description-title-container">
+        <div className="icon-container">{icon}</div>
+        <h3 className="description-title">{title}</h3>
+      </div>
       <p className="description-text">{children}</p>
     </div>
   )
