@@ -11,7 +11,7 @@ import {
 const App = () => {
   return (
     <div>
-      <Navigation />
+      {/* <Navigation /> */}
       <main>
         <Hero />
         <About />
