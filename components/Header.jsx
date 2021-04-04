@@ -31,9 +31,13 @@ export const Header = () => {
       />
       <link rel="manifest" href="/site.webmanifest" />
       <meta property="og:title" content="Sourcing Your Next Car" />
+      <meta
+        property="og:description"
+        content="New and pre-loved cars available, sourced from UK dealerships and with full warranties."
+      />
       <meta property="og:type" content="website" />
-      <meta property="og:url" content="https://sourcethatcar.co.uk" />
-      <meta property="og:image" content="/android-chrome-512x512.png" />
+      <meta property="og:url" content="https://sourcethatcar.com" />
+      <meta property="og:image" content="/stc-share-card.jpg" />
     </Head>
   )
 }
