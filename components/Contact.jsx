@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form"
 import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import emailjs, { init } from "emailjs-com"
+import { breakpoints } from "../styles"
 
 // initiate emailjs with userID
 init(process.env.NEXT_PUBLIC__EMAILJS)
@@ -95,6 +96,26 @@ const ContactWrapper = styled.section`
       text-decoration: underline;
     }
   }
+  .contact-details-container {
+    padding: 1rem;
+    width: 100%;
+  }
+
+  .contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    padding-top: 1.5rem;
+    font-size: 0.875rem;
+  }
+  .contact-detail {
+    padding: 0.5rem;
+    span {
+      font-weight: bold;
+      color: var(--colorYellow);
+    }
+  }
 `
 export const Contact = () => {
   const [buttonLabel, setButtonLabel] = useState("Get in Touch")
@@ -173,6 +194,23 @@ export const Contact = () => {
               </div>
             )}
           </form>
+          <div className="contact-details-container">
+            <p>Alternatively we can be reached at:</p>
+            <div className="contact-details">
+              <p className="contact-detail">
+                <span>Office</span>: 01732 300581
+              </p>
+              <p className="contact-detail">
+                <span>Mike</span>: 07884 345367
+              </p>
+              <p className="contact-detail">
+                <span>Julie</span>: 07721 719040
+              </p>
+              <p className="contact-detail">
+                <span>Email</span>: enquiries@sourcethatcar.com
+              </p>
+            </div>
+          </div>
         </div>
       </Layout>
     </ContactWrapper>
