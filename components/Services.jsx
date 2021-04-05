@@ -92,6 +92,11 @@ export const Services = () => {
         <div className="services-container">
           <h1>Our Service</h1>
           <div className="description-container">
+            <Description title="Bespoke Service" icon={<FaHandshake />}>
+              Sourcethatcar provides a bespoke service sourcing new and used
+              cars at a competitive price, removing the time and hassle out of
+              searching for your new or used car.
+            </Description>
             <Description title="Your Choice, Your Car" icon={<FaCarSide />}>
               Let us know the manufacturer, model and specification of the car
               you want, then sit back and relax - we will do the rest!
@@ -108,11 +113,6 @@ export const Services = () => {
               Furthermore, used cars are supplied with a ‘Warrantywise’ warranty
               and in the unlikely event of a claim any work can be carried out
               by your local service centre
-            </Description>
-            <Description title="Bespoke Service" icon={<FaHandshake />}>
-              Sourcethatcar provides a bespoke service sourcing new and used
-              cars at a competitive price, removing the time and hassle out of
-              searching for your new or used car.
             </Description>
           </div>
         </div>

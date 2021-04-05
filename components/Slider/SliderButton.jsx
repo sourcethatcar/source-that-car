@@ -1,6 +1,7 @@
 import { cx } from "@emotion/css"
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
+import { BsChevronLeft, BsChevronRight } from "react-icons/bs"
 
 const SliderButtonWrapper = styled.button`
   position: absolute;
@@ -32,29 +33,6 @@ const SliderButtonWrapper = styled.button`
   }
 `
 
-export const LeftArrow = () => (
-  <svg
-    width="21"
-    height="36"
-    viewBox="0 0 21 36"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M20.775 32.85L7.05 18 21 3.15 17.625 0 .525 18 17.4 36l3.375-3.15z" />
-  </svg>
-)
-
-export const RightArrow = () => (
-  <svg
-    width="21"
-    height="36"
-    viewBox="0 0 21 36"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path d="M.225 3.15L13.95 18 0 32.85 3.375 36l17.1-18L3.6 0 .225 3.15z" />
-  </svg>
-)
-
 export const SliderButton = ({ position, onClick, disabled }) => {
   const classes = cx(
     { left: position === "left" },
@@ -68,7 +46,7 @@ export const SliderButton = ({ position, onClick, disabled }) => {
       onClick={onClick}
       disabled={disabled}
     >
-      {position === "left" ? <LeftArrow /> : <RightArrow />}
+      {position === "left" ? <BsChevronLeft /> : <BsChevronRight />}
     </SliderButtonWrapper>
   )
 }
