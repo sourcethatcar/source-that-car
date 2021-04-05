@@ -22,6 +22,12 @@ const FooterWrapper = styled.footer`
     justify-content: space-evenly;
     align-items: center;
   }
+  .footer-item {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
   .right {
     span {
       color: var(--colorYellow);
@@ -30,15 +36,12 @@ const FooterWrapper = styled.footer`
 
   @media only screen and (min-width: ${breakpoints.tablet}) {
     .footer-items {
-      height: fit-content;
       flex-direction: row;
-      justify-content: space-around;
-      align-items: flex-start;
     }
     .footer-item {
-      display: flex;
-      align-items: flex-start;
+      width: calc(100% / 3);
     }
+
     .left {
       justify-content: flex-start;
     }
@@ -56,15 +59,10 @@ export const Footer = () => {
       <Layout className="footer-layout">
         <div className="footer-items">
           <div className="footer-item left">
-            <small className="grid1">
-              © 2021 Source That Car. All rights reserved
-            </small>
+            <small>© 2021 Source That Car. All rights reserved</small>
           </div>
-          <div className="footer-item center ">
-            <small className="grid2">Privacy Policy</small>{" "}
-          </div>
-          <div className="footer-item center ">
-            <small className="grid3">Terms and Conditions</small>
+          <div className="footer-item center">
+            <small>Privacy Policy</small>
           </div>
           <div className="footer-item right">
             <small>

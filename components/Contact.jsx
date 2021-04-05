@@ -7,6 +7,7 @@ import { yupResolver } from "@hookform/resolvers/yup"
 import * as yup from "yup"
 import emailjs, { init } from "emailjs-com"
 import { breakpoints } from "../styles"
+import PropTypes from "prop-types"
 
 // initiate emailjs with userID
 init(process.env.NEXT_PUBLIC__EMAILJS)
@@ -117,6 +118,38 @@ const ContactWrapper = styled.section`
     }
   }
 `
+const ContactDetail = ({ title, className, email, tel }) => {
+  const ContactLink = () => {
+    if (email.length > 0) {
+      return <a href={`mailto:${email}`}>{email}</a>
+    }
+
+    if (tel.length > 0) {
+      return <a href={`tel:${tel.replace(" ", "")}`}>{tel}</a>
+    }
+    return ""
+  }
+  return (
+    <p className={className}>
+      <span>{title}</span>: <ContactLink />
+    </p>
+  )
+}
+
+ContactDetail.propTypes = {
+  title: PropTypes.string,
+  className: PropTypes.string,
+  email: PropTypes.string,
+  tel: PropTypes.string,
+}
+
+ContactDetail.defaultProps = {
+  title: "Title",
+  className: "contact-detail",
+  email: "",
+  tel: "",
+}
+
 export const Contact = () => {
   const [buttonLabel, setButtonLabel] = useState("Get in Touch")
   const [emailError, setEmailError] = useState("")
@@ -197,18 +230,13 @@ export const Contact = () => {
           <div className="contact-details-container">
             <p>Alternatively we can be reached at:</p>
             <div className="contact-details">
-              <p className="contact-detail">
-                <span>Office</span>: 01732 300581
-              </p>
-              <p className="contact-detail">
-                <span>Mike</span>: 07884 345367
-              </p>
-              <p className="contact-detail">
-                <span>Julie</span>: 07721 719040
-              </p>
-              <p className="contact-detail">
-                <span>Email</span>: enquiries@sourcethatcar.com
-              </p>
+              <ContactDetail title="Office" tel="01732 300581" />
+              <ContactDetail title="Mike" tel="07884 345367" />
+              <ContactDetail title="Julie" tel="07721 719040" />
+              <ContactDetail
+                title="Email"
+                email="enquiries@sourcethatcar.com"
+              />
             </div>
           </div>
         </div>

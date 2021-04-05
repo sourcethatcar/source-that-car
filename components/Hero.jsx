@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { Layout } from "./index"
 import { breakpoints } from "../styles"
 import { BsChevronDown } from "react-icons/bs"
-import { SiTwitter, SiFacebook, SiInstagram } from "react-icons/si"
+import { SiFacebook, SiInstagram } from "react-icons/si"
 
 const HeroWrapper = styled.section`
   height: 100vh;
@@ -134,9 +134,6 @@ export const Hero = () => {
       <Layout className="headline-container">
         <h1>Source That Car</h1>
         <div className="social-icons-container">
-          <a href="https://www.twitter.com">
-            <SiTwitter />
-          </a>
           <a href="https://www.google.com">
             <SiInstagram />
           </a>
