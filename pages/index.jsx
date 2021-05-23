@@ -4,14 +4,12 @@ import {
   Testimonials,
   Contact,
   Footer,
-  Navigation,
   About,
 } from "../components"
 
 const App = () => {
   return (
     <div>
-      {/* <Navigation /> */}
       <main>
         <Hero />
         <About />
