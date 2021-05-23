@@ -134,10 +134,10 @@ export const Hero = () => {
       <Layout className="headline-container">
         <h1>Source That Car</h1>
         <div className="social-icons-container">
-          <a href="https://www.google.com">
+          <a href="https://www.instagram.com/source.that.car/">
             <SiInstagram />
           </a>
-          <a href="https://www.google.com">
+          <a href="https://www.facebook.com/sourcethatcar19/">
             <SiFacebook />
           </a>
         </div>
