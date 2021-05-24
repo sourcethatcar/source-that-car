@@ -1,3 +1,4 @@
+import PropTypes from "prop-types"
 import { getStock } from "../lib/api/notion"
 import {
   Hero,
@@ -5,18 +6,16 @@ import {
   Testimonials,
   Contact,
   Footer,
-  About,
   Stock,
 } from "../components"
 
-const App = (data) => {
+const App = ({ stock }) => {
   return (
     <div>
       <main>
         <Hero />
-        <About />
+        <Stock stock={stock} />
         <Services />
-        <Stock data={data} />
         <Testimonials />
         <Contact />
       </main>
@@ -26,13 +25,22 @@ const App = (data) => {
 }
 
 export default App
+App.propTypes = {
+  stock: PropTypes.array.isRequired,
+}
 
 export async function getServerSideProps(ctx) {
-  const data = await getStock()
-  console.log(data)
+  const stock = await getStock()
 
-  if (!data) {
-    console.log("ERROR")
+  if (!stock) {
+    return {
+      notFound: true,
+    }
   }
-  return data
+
+  return {
+    props: {
+      stock,
+    },
+  }
 }
