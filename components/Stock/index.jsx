@@ -1,6 +1,7 @@
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { Layout } from "../Layout"
+import { breakpoints } from "../../styles"
 import { Car } from "./Car"
 
 const StockWrapper = styled.section`
@@ -12,8 +13,15 @@ const StockWrapper = styled.section`
   .stock-container {
     padding: 3rem 0;
     display: flex;
-    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
     justify-content: space-evenly;
+
+    @media only screen and (min-width: ${breakpoints.tablet}) {
+      gap: 1rem;
+      flex-direction: row;
+    }
   }
 `
 
