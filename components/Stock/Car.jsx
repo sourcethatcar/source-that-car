@@ -2,6 +2,7 @@ import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 
 const CarWrapper = styled.div`
+  margin: 1rem;
   position: relative;
   width: 280px;
   background-color: var(--colorWhite);

@@ -15,11 +15,9 @@ const StockWrapper = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 2rem;
     justify-content: space-evenly;
 
     @media only screen and (min-width: ${breakpoints.tablet}) {
-      gap: 1rem;
       flex-direction: row;
     }
   }
