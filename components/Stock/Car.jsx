@@ -28,7 +28,6 @@ const CarWrapper = styled.div`
     display: flex;
     padding-top: 1rem;
     justify-content: flex-start;
-    gap: 0.5rem;
   }
 `
 
@@ -47,6 +46,7 @@ const Chip = styled.div`
   border-radius: 5px;
   background-color: rgb(233, 233, 236);
   color: rgb(69, 68, 68);
+  margin-right: 0.5rem;
 `
 
 const TypeTag = styled(Chip)`
