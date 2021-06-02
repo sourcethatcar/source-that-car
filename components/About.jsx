@@ -90,11 +90,11 @@ export const About = () => {
     <ServicesWrapper id="about">
       <Layout className="services-layout">
         <div className="services-container">
-          <h1>Our Service</h1>
+          <h1>About Us</h1>
           <div className="description-container">
             <Description title="We Get the Job Done Right" icon={<FaAward />}>
               <p>
-                Michale Barter, our founding partner, has over 30 years of
+                Michael Barter, our founding partner, has over 30 years of
                 knowledge and experience within the automotive industry.
               </p>
               <p>

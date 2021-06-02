@@ -104,10 +104,10 @@ export const Services = () => {
               various options with you .
             </Description>
             <Description title="New Cars" icon={<FaGift />}>
-              All cars are HPI checked, sourced from a UK dealer, and come with
-              a full manufacturers’ warranty and roadside assistance. In the
-              event of a warranty claim, any authorised dealership throughout
-              the UK can help.
+              All pre-owned cars are HPI checked, sourced from a UK dealer, and
+              come with a full manufacturers’ warranty and roadside assistance.
+              In the event of a warranty claim, any authorised dealership
+              throughout the UK can help.
             </Description>
             <Description title="Pre-owned Cars" icon={<FaHeart />}>
               Furthermore, used cars are supplied with a ‘Warrantywise’ warranty
