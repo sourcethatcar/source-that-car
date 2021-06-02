@@ -66,7 +66,11 @@ export const Footer = () => {
           </div>
           <div className="footer-item right">
             <small>
-              made by <span>suneet</span>.codes
+              made by{" "}
+              <a href="https://www.suneet.codes/">
+                <span>suneet</span>
+                .codes
+              </a>
             </small>
           </div>
         </div>

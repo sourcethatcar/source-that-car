@@ -14,14 +14,16 @@ const InputWrapper = styled.div`
   textarea {
     margin-top: 0.5rem;
     height: 3rem;
-    border: 1px solid #c4c4c4;
+    border: ${(props) =>
+      props.errorState ? "1px solid red" : "1px solid #c4c4c4"};
     border-radius: 5px;
     padding: 1rem;
     width: 100%;
   }
   input:focus,
   textarea:focus {
-    outline-color: var(--colorBlue);
+    outline-color: ${(props) =>
+      props.errorState ? "red" : "var(--colorBlue)"};
   }
 
   textarea {
@@ -33,7 +35,8 @@ const InputWrapper = styled.div`
     padding-left: 0.5rem;
   }
   small {
-    color: var(--colorBlue);
+    /* color: var(--colorBlue); */
+    color: red;
   }
 `
 
@@ -47,7 +50,7 @@ export const Input = ({
   label,
 }) => {
   return (
-    <InputWrapper>
+    <InputWrapper errorState={errorState}>
       <label htmlFor={fieldName}>
         {label}
         {textArea ? (

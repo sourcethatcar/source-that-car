@@ -7,6 +7,7 @@ import {
   Contact,
   Footer,
   Stock,
+  About,
 } from "../components"
 
 const App = ({ stock }) => {
@@ -14,6 +15,7 @@ const App = ({ stock }) => {
     <div>
       <main>
         <Hero />
+        <About />
         <Stock stock={stock} />
         <Services />
         <Testimonials />
