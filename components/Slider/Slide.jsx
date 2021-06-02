@@ -1,5 +1,6 @@
 import styled from "@emotion/styled"
 import PropTypes from "prop-types"
+import BrandIcon from "../icons/BrandIcon"
 
 export const SlideWrapper = styled.li`
   position: absolute;
@@ -46,24 +47,29 @@ export const SlideWrapper = styled.li`
 `
 const Avatar = styled.div`
   border-radius: 100%;
-  border: 1px solid var(--colorYellow);
+  /* border: 1px solid var(--colorYellow); */
+  fill: var(--colorBlue);
   width: 4rem;
   height: 4rem;
-  background-color: lightblue;
+  /* background-color: lightblue; */
   overflow: hidden;
-  img {
-    width: 100%;
-    height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  svg {
+    width: 90%;
+    height: 90%;
   }
 `
 
-export const Slide = ({ content: { profileImg, author, text }, offset }) => {
+export const Slide = ({ content: { brandLogo, author, text }, offset }) => {
   return (
     <SlideWrapper offset={offset}>
       <div className="card-container">
         <div className="card">
           <Avatar>
-            <img src={profileImg} alt={author} />
+            {/* <img src={profileImg} alt={author} /> */}
+            <BrandIcon iconName={brandLogo} />
           </Avatar>
           <p className="slide-text">{`"${text}"`}</p>
           <h5 className="slide-author">{author}</h5>
