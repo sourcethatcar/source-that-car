@@ -1,7 +1,6 @@
 import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 import { Layout } from "../Layout"
-import { breakpoints } from "../../styles"
 import { Car } from "./Car"
 
 const StockWrapper = styled.section`
