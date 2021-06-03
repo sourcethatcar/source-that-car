@@ -1,6 +1,7 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 import { breakpoints } from "../styles"
+import { SiFacebook, SiInstagram } from "react-icons/si"
 
 const FooterWrapper = styled.footer`
   height: 150px;
@@ -34,6 +35,22 @@ const FooterWrapper = styled.footer`
     }
   }
 
+  .social-icons-container {
+    display: flex;
+    justify-content: flex-start;
+    padding: 1rem 0;
+
+    a {
+      padding: 0 1rem;
+
+      svg {
+        width: 1rem;
+        height: 1rem;
+        fill: var(--colorYellow);
+      }
+    }
+  }
+
   @media only screen and (min-width: ${breakpoints.tablet}) {
     .footer-items {
       flex-direction: row;
@@ -62,7 +79,14 @@ export const Footer = () => {
             <small>© 2021 Source That Car. All rights reserved</small>
           </div>
           <div className="footer-item center">
-            <small>Privacy Policy</small>
+            <div className="social-icons-container">
+              <a href="https://www.instagram.com/source.that.car/">
+                <SiInstagram />
+              </a>
+              <a href="https://www.facebook.com/sourcethatcar19/">
+                <SiFacebook />
+              </a>
+            </div>
           </div>
           <div className="footer-item right">
             <small>
