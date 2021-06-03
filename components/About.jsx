@@ -80,7 +80,7 @@ const Description = ({ children, title, icon }) => {
 }
 
 Description.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.oneOf([PropTypes.string, PropTypes.array]).isRequired,
   title: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired,
 }

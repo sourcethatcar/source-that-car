@@ -8,6 +8,11 @@ const CarWrapper = styled.div`
   background-color: var(--colorWhite);
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transition: transform 0.2s;
+  &:hover {
+    transform: scale(1.1);
+    cursor: pointer;
+  }
 
   .car-text-area {
     padding: 0.5rem;
@@ -66,26 +71,29 @@ export const Car = ({
   reg,
   image,
   description,
+  listing,
   type,
 }) => {
   return (
-    <CarWrapper className="car-container">
-      <TypeTag>{type.select.name}</TypeTag>
-      <ImageContainer imageUrl={image.url} />
-      <div className="car-text-area">
-        <div className="car-title-area">
-          <h4 className="car-title">{name.title[0].text.content}</h4>
-          <h4 className="car-price">{`£${price.number}`}</h4>
-        </div>
-        {/* <div className="car-description">
+    <a href={listing.url}>
+      <CarWrapper className="car-container">
+        <TypeTag>{type.select.name}</TypeTag>
+        <ImageContainer imageUrl={image.url} />
+        <div className="car-text-area">
+          <div className="car-title-area">
+            <h4 className="car-title">{name.title[0].text.content}</h4>
+            <h4 className="car-price">{`£${price.number}`}</h4>
+          </div>
+          {/* <div className="car-description">
           <p>{description.rich_text[0].text.content}</p>
         </div> */}
-        <div className="car-chip-container">
-          <Chip>{`${mileage.number} miles`}</Chip>
-          <Chip>{`${reg.select.name} reg`}</Chip>
+          <div className="car-chip-container">
+            <Chip>{`${mileage.number} miles`}</Chip>
+            <Chip>{`${reg.select.name} reg`}</Chip>
+          </div>
         </div>
-      </div>
-    </CarWrapper>
+      </CarWrapper>
+    </a>
   )
 }
 
@@ -96,6 +104,7 @@ Car.propTypes = {
   mileage: PropTypes.shape({ number: PropTypes.number }).isRequired,
   reg: PropTypes.shape({ select: PropTypes.object }).isRequired,
   image: PropTypes.object.isRequired,
+  listing: PropTypes.object.isRequired,
   description: PropTypes.object,
   type: PropTypes.object.isRequired,
 }
