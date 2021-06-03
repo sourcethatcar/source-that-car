@@ -2,7 +2,7 @@ import styled from "@emotion/styled"
 import { Layout } from "./index"
 import { breakpoints } from "../styles"
 import { BsChevronDown } from "react-icons/bs"
-import { SiFacebook, SiInstagram } from "react-icons/si"
+import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si"
 
 const HeroWrapper = styled.section`
   height: 100vh;
@@ -139,6 +139,9 @@ export const Hero = () => {
           </a>
           <a href="https://www.facebook.com/sourcethatcar19/">
             <SiFacebook />
+          </a>
+          <a href="https://www.linkedin.com/in/mike-barter-sourcethatcar-b42a8229/">
+            <SiLinkedin />
           </a>
         </div>
       </Layout>

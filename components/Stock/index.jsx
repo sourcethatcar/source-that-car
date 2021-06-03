@@ -12,13 +12,15 @@ const StockWrapper = styled.section`
 
   .stock-container {
     padding: 3rem 0;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
+    display: grid;
     align-items: center;
-    justify-content: space-evenly;
 
-    @media only screen and (min-width: ${breakpoints.tablet}) {
-      flex-direction: row;
+    @media only screen and (min-width: 800px) {
+      grid-template-columns: 1fr 1fr;
+    }
+    @media only screen and (min-width: 1160px) {
+      grid-template-columns: 1fr 1fr 1fr;
     }
   }
 `

@@ -13,6 +13,10 @@ const ServicesWrapper = styled.section`
     row-gap: 5rem;
     grid-template-columns: repeat(1, minmax(100px, 300px));
     justify-content: center;
+    a {
+      color: var(--colorYellow);
+      font-weight: bold;
+    }
   }
   .description-item {
     max-width: 350px;
@@ -80,7 +84,7 @@ const Description = ({ children, title, icon }) => {
 }
 
 Description.propTypes = {
-  children: PropTypes.oneOf([PropTypes.string, PropTypes.array]).isRequired,
+  children: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired,
 }
@@ -93,14 +97,12 @@ export const About = () => {
           <h1>About Us</h1>
           <div className="description-container">
             <Description title="We Get the Job Done Right" icon={<FaAward />}>
-              <p>
-                Michael Barter, our founding partner, has over 30 years of
-                knowledge and experience within the automotive industry.
-              </p>
-              <p>
-                This not only ensures that we get you the right car but also at
-                the possible best price.
-              </p>
+              <a href="https://www.linkedin.com/in/mike-barter-sourcethatcar-b42a8229/">
+                Michael Barter
+              </a>
+              , our founding partner, has over 30 years of knowledge and
+              experience within the automotive industry. This not only ensures
+              that we get you the right car but also at the possible best price.
             </Description>
             <Description title="Family Run Business" icon={<FaUsers />}>
               We are based in Tonbridge, Kent in the South East of England. Not

@@ -2,7 +2,7 @@ import PropTypes from "prop-types"
 import styled from "@emotion/styled"
 
 const CarWrapper = styled.div`
-  margin: 1rem;
+  margin: 2rem 1rem;
   position: relative;
   width: 280px;
   background-color: var(--colorWhite);
@@ -75,7 +75,7 @@ export const Car = ({
   type,
 }) => {
   return (
-    <a href={listing.url}>
+    <a href={listing.url} style={{ justifySelf: "center" }}>
       <CarWrapper className="car-container">
         <TypeTag>{type.select.name}</TypeTag>
         <ImageContainer imageUrl={image.url} />

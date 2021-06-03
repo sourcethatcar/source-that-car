@@ -1,7 +1,7 @@
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 import { breakpoints } from "../styles"
-import { SiFacebook, SiInstagram } from "react-icons/si"
+import { SiFacebook, SiInstagram, SiLinkedin } from "react-icons/si"
 
 const FooterWrapper = styled.footer`
   height: 150px;
@@ -85,6 +85,9 @@ export const Footer = () => {
               </a>
               <a href="https://www.facebook.com/sourcethatcar19/">
                 <SiFacebook />
+              </a>
+              <a href="https://www.linkedin.com/in/mike-barter-sourcethatcar-b42a8229/">
+                <SiLinkedin />
               </a>
             </div>
           </div>
