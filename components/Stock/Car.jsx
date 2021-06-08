@@ -20,6 +20,10 @@ const CarWrapper = styled.div`
     flex-direction: column;
     justify-content: space-between;
   }
+
+  .car-price {
+    padding-left: 1rem;
+  }
   .car-title-area {
     padding: 0.5rem 0;
     display: flex;
@@ -32,7 +36,8 @@ const CarWrapper = styled.div`
   .car-chip-container {
     display: flex;
     padding-top: 1rem;
-    justify-content: flex-start;
+    align-items: center;
+    justify-content: space-between;
   }
 `
 
