@@ -105,10 +105,9 @@ export const About = () => {
               that we get you the right car but also at the possible best price.
             </Description>
             <Description title="Family Run Business" icon={<FaUsers />}>
-              We are based in Tonbridge, Kent in the South East of England. Not
-              only do we supply new and used vehicles, but also, we can
-              part-exchange your current vehicle to eliminate all the hassle and
-              pressure for you.
+              We are based in Tonbridge. Not only do we supply new and used
+              vehicles, but also, we can part-exchange your current vehicle to
+              eliminate all the hassle and pressure for you.
             </Description>
             {/* <Description title="New Cars" icon={<FaGift />}>
               All cars are HPI checked, sourced from a UK dealer, and come with
