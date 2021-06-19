@@ -11,7 +11,7 @@ const CarWrapper = styled.div`
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.1);
-    cursor: pointer;
+    cursor: ${(props) => (props.isSold ? "normal" : "pointer")};
   }
 
   .car-text-area {
@@ -29,15 +29,14 @@ const CarWrapper = styled.div`
     display: flex;
     justify-content: space-between;
   }
-  .car-description {
-    font-size: 0.875rem;
-    padding: 1rem 1rem;
-  }
   .car-chip-container {
     display: flex;
     padding-top: 1rem;
     align-items: center;
     justify-content: space-between;
+    & div:last-child {
+      margin-right: 0;
+    }
   }
 `
 
@@ -68,6 +67,11 @@ const TypeTag = styled(Chip)`
   background-color: var(--colorYellow);
   color: var(--colorWhite);
 `
+const SoldTag = styled(TypeTag)`
+  right: 0;
+  bottom: 38%;
+  background-color: purple;
+`
 
 export const Car = ({
   price,
@@ -75,29 +79,34 @@ export const Car = ({
   mileage,
   reg,
   image,
-  description,
+  sold,
   listing,
   type,
 }) => {
-  return (
-    <a href={listing.url} style={{ justifySelf: "center" }}>
-      <CarWrapper className="car-container">
-        <TypeTag>{type.select.name}</TypeTag>
-        <ImageContainer imageUrl={image.url} />
-        <div className="car-text-area">
-          <div className="car-title-area">
-            <h4 className="car-title">{name.title[0].text.content}</h4>
-            <h4 className="car-price">{`£${price.number}`}</h4>
-          </div>
-          {/* <div className="car-description">
-          <p>{description.rich_text[0].text.content}</p>
-        </div> */}
-          <div className="car-chip-container">
-            <Chip>{`${mileage.number} miles`}</Chip>
-            <Chip>{`${reg.select.name} reg`}</Chip>
-          </div>
+  const CarCard = () => (
+    <CarWrapper className="car-container" isSold={sold}>
+      <TypeTag>{type.select.name}</TypeTag>
+      {sold && <SoldTag>reserved</SoldTag>}
+      <ImageContainer imageUrl={image.url} />
+      <div className="car-text-area">
+        <div className="car-title-area">
+          <h4 className="car-title">{name.title[0].text.content}</h4>
+          <h4 className="car-price">{`£${price.number}`}</h4>
         </div>
-      </CarWrapper>
+        <div className="car-chip-container">
+          <Chip>{`${mileage.number} miles`}</Chip>
+          <Chip>{`${reg.select.name} reg`}</Chip>
+        </div>
+      </div>
+    </CarWrapper>
+  )
+  return sold ? (
+    <div style={{ justifySelf: "center" }}>
+      <CarCard />
+    </div>
+  ) : (
+    <a href={listing.url} style={{ justifySelf: "center" }}>
+      <CarCard />
     </a>
   )
 }
@@ -110,10 +119,6 @@ Car.propTypes = {
   reg: PropTypes.shape({ select: PropTypes.object }).isRequired,
   image: PropTypes.object.isRequired,
   listing: PropTypes.object.isRequired,
-  description: PropTypes.object,
   type: PropTypes.object.isRequired,
-}
-
-Car.defaultProps = {
-  description: {},
+  sold: PropTypes.bool.isRequired,
 }
