@@ -14,6 +14,10 @@ const ServicesWrapper = styled.section`
     grid-template-columns: repeat(1, minmax(100px, 300px));
     justify-content: center;
   }
+  a {
+    color: var(--colorYellow);
+    font-weight: bold;
+  }
   .description-item {
     max-width: 350px;
     justify-self: center;
@@ -112,9 +116,10 @@ export const Services = () => {
             <Description title="Pre-owned Cars" icon={<FaHeart />}>
               All Pre-owned cars are fully HPI checked, have a comprehensive
               service history & have at least 6 months MOT. Furthermore, our
-              used cars are supplied with a Warrantywise Used Car warranty and
-              in the unlikely event of a claim, any work can be carried out by a
-              local authorised service center.
+              used cars are supplied with a{" "}
+              <a href="https://www.warrantywise.co.uk/">Warrantywise</a> Used
+              Car warranty and in the unlikely event of a claim, any work can be
+              carried out by a local authorised service center.
             </Description>
           </div>
         </div>
