@@ -85,10 +85,17 @@ const ContactWrapper = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
-    background-color: lightgreen;
 
-    input:hover {
-      background-color: lightcoral;
+    input[type="submit"] {
+      transition: transform 0.1s;
+
+      &:hover {
+        transform: scale(1.1);
+      }
+
+      &:active {
+        transform: scale(1);
+      }
     }
   }
 
@@ -157,7 +164,6 @@ ContactDetail.defaultProps = {
 
 export const Contact = () => {
   const [emailError, setEmailError] = useState("")
-  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
   const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(validationSchema),
@@ -168,7 +174,11 @@ export const Contact = () => {
       /** on success */
       ({ text }) => {
         console.log(text)
-        setIsFormSubmitted(true)
+        window.alert("Thanks for your enquiry. We'll be in touch shortly.")
+        reset(
+          { firstName: "", lastName: "", email: "", comments: "" },
+          { dirtyFields: false, isDirty: false }
+        )
       },
       /** on error */
       ({ text }) => {
@@ -177,16 +187,6 @@ export const Contact = () => {
       }
     )
   }
-
-  useEffect(() => {
-    if (isFormSubmitted) {
-      window.alert("Thanks for your enquiry. We'll be in touch shortly.")
-      reset(
-        { firstName: "", lastName: "", email: "", comments: "" },
-        { dirtyFields: false, isDirty: false }
-      )
-    }
-  }, [isFormSubmitted, reset])
 
   return (
     <ContactWrapper id="contact">
