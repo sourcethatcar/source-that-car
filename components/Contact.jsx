@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import styled from "@emotion/styled"
 import { Layout } from "./Layout"
 import { Input, Submit } from "../components"
@@ -153,8 +153,9 @@ ContactDetail.defaultProps = {
 export const Contact = () => {
   const [buttonLabel, setButtonLabel] = useState("Get in Touch")
   const [emailError, setEmailError] = useState("")
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
-  const { register, handleSubmit, errors } = useForm({
+  const { register, handleSubmit, errors, reset } = useForm({
     resolver: yupResolver(validationSchema),
     mode: "onTouched",
   })
@@ -164,6 +165,7 @@ export const Contact = () => {
       ({ text }) => {
         console.log(text)
         setButtonLabel("Sent 🙂")
+        setIsFormSubmitted(true)
       },
       /** on error */
       ({ text }) => {
@@ -173,6 +175,12 @@ export const Contact = () => {
       }
     )
   }
+
+  useEffect(() => {
+    if (isFormSubmitted) {
+      reset({ firstName: "", lastName: "", email: "", comments: "" })
+    }
+  }, [isFormSubmitted, reset])
 
   return (
     <ContactWrapper id="contact">
