@@ -84,7 +84,7 @@ const Description = ({ children, title, icon }) => {
 }
 
 Description.propTypes = {
-  children: PropTypes.string.isRequired,
+  children: PropTypes.any.isRequired,
   title: PropTypes.string.isRequired,
   icon: PropTypes.object.isRequired,
 }
