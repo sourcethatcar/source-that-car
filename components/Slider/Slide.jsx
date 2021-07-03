@@ -16,6 +16,7 @@ export const SlideWrapper = styled.li`
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0.5rem 0;
   }
   .card {
     display: flex;
@@ -29,19 +30,22 @@ export const SlideWrapper = styled.li`
     border-radius: 5px;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     padding: 1rem 0;
+    height: 100%;
   }
 
   .slide-text {
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
     text-align: center;
     font-weight: 400;
     font-size: 14px;
     line-height: 22px;
     color: black;
+    overflow-x: auto;
   }
 
   .slide-author {
+    padding-top: 1rem;
     color: var(--colorYellow);
   }
 `
@@ -67,10 +71,12 @@ export const Slide = ({ content: { brandLogo, author, text }, offset }) => {
     <SlideWrapper offset={offset}>
       <div className="card-container">
         <div className="card">
-          <Avatar>
-            {/* <img src={profileImg} alt={author} /> */}
-            <BrandIcon iconName={brandLogo} />
-          </Avatar>
+          <div style={{ paddingBottom: "1rem" }}>
+            <Avatar>
+              {/* <img src={profileImg} alt={author} /> */}
+              <BrandIcon iconName={brandLogo} />
+            </Avatar>
+          </div>
           <p className="slide-text">{`"${text}"`}</p>
           <h5 className="slide-author">{author}</h5>
         </div>
