@@ -1,6 +1,6 @@
 import styled from "@emotion/styled"
 import { Layout, Slider } from "../components"
-import testimonials from "../utils/testimonials"
+import PropTypes from "prop-types"
 
 const TestimonialsWrapper = styled.section`
   background-color: var(--colorGrey);
@@ -19,7 +19,7 @@ const TestimonialsWrapper = styled.section`
     }
   }
 `
-export const Testimonials = () => {
+export const Testimonials = ({ testimonials }) => {
   return (
     <TestimonialsWrapper id="testimonials">
       <Layout className="testimonials-layout" style={{ paddingBottom: "3rem" }}>
@@ -33,4 +33,8 @@ export const Testimonials = () => {
       </Layout>
     </TestimonialsWrapper>
   )
+}
+
+Testimonials.propTypes = {
+  testimonials: PropTypes.array.isRequired,
 }
