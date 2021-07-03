@@ -11,7 +11,7 @@ const CarWrapper = styled.div`
   transition: transform 0.2s;
   &:hover {
     transform: scale(1.1);
-    cursor: ${(props) => (props.isSold ? "normal" : "pointer")};
+    cursor: ${(props) => (props.isActive ? "pointer" : "normal")};
   }
 
   .car-text-area {
@@ -67,10 +67,11 @@ const TypeTag = styled(Chip)`
   background-color: var(--colorYellow);
   color: var(--colorWhite);
 `
-const SoldTag = styled(TypeTag)`
+const StatusTag = styled(TypeTag)`
   right: 0;
   bottom: 38%;
-  background-color: purple;
+  background-color: ${(props) =>
+    props.status === "reserved" ? "purple" : "green"};
 `
 
 export const Car = ({
@@ -79,14 +80,14 @@ export const Car = ({
   mileage,
   reg,
   image,
-  sold,
+  status,
   listing,
   type,
 }) => {
   const CarCard = () => (
-    <CarWrapper className="car-container" isSold={sold}>
+    <CarWrapper className="car-container" isActive={status === "active"}>
       <TypeTag>{type.select.name}</TypeTag>
-      {sold && <SoldTag>reserved</SoldTag>}
+      {status !== "active" && <StatusTag status={status}>{status}</StatusTag>}
       <ImageContainer imageUrl={image.url} />
       <div className="car-text-area">
         <div className="car-title-area">
@@ -100,7 +101,7 @@ export const Car = ({
       </div>
     </CarWrapper>
   )
-  return sold ? (
+  return status !== "active" ? (
     <div style={{ justifySelf: "center" }}>
       <CarCard />
     </div>
@@ -120,5 +121,5 @@ Car.propTypes = {
   image: PropTypes.object.isRequired,
   listing: PropTypes.object.isRequired,
   type: PropTypes.object.isRequired,
-  sold: PropTypes.bool.isRequired,
+  status: PropTypes.string.isRequired,
 }
