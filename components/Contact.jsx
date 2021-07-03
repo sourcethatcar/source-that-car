@@ -85,6 +85,11 @@ const ContactWrapper = styled.section`
     width: 100%;
     display: flex;
     justify-content: center;
+    background-color: lightgreen;
+
+    input:hover {
+      background-color: lightcoral;
+    }
   }
 
   .emailError {
@@ -151,7 +156,6 @@ ContactDetail.defaultProps = {
 }
 
 export const Contact = () => {
-  const [buttonLabel, setButtonLabel] = useState("Get in Touch")
   const [emailError, setEmailError] = useState("")
   const [isFormSubmitted, setIsFormSubmitted] = useState(false)
 
@@ -164,13 +168,11 @@ export const Contact = () => {
       /** on success */
       ({ text }) => {
         console.log(text)
-        setButtonLabel("Sent 🙂")
         setIsFormSubmitted(true)
       },
       /** on error */
       ({ text }) => {
         console.log(text)
-        setButtonLabel("Oops!")
         setEmailError(comments)
       }
     )
@@ -178,7 +180,11 @@ export const Contact = () => {
 
   useEffect(() => {
     if (isFormSubmitted) {
-      reset({ firstName: "", lastName: "", email: "", comments: "" })
+      window.alert("Thanks for your enquiry. We'll be in touch shortly.")
+      reset(
+        { firstName: "", lastName: "", email: "", comments: "" },
+        { dirtyFields: false, isDirty: false }
+      )
     }
   }, [isFormSubmitted, reset])
 
@@ -215,7 +221,7 @@ export const Contact = () => {
               errorState={errors[`${fieldNames.comments}`]}
             />
             <div className="buttonContainer">
-              <Submit value={buttonLabel} fontWeight="bold" />
+              <Submit value="Send" fontWeight="bold" />
             </div>
             {emailError && (
               <div className="emailError">
