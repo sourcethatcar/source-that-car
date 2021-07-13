@@ -52,6 +52,7 @@ const ImageContainer = styled.div`
 
 const Chip = styled.div`
   padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
   border-radius: 5px;
   background-color: rgb(233, 233, 236);
   color: rgb(69, 68, 68);
