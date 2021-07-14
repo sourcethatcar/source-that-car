@@ -87,17 +87,17 @@ export const Car = ({
 }) => {
   const CarCard = () => (
     <CarWrapper className="car-container" isActive={status === "active"}>
-      <TypeTag>{type.select.name}</TypeTag>
+      {type && <TypeTag>{type.select.name}</TypeTag>}
       {status !== "active" && <StatusTag status={status}>{status}</StatusTag>}
-      <ImageContainer imageUrl={image.url} />
+      {image && <ImageContainer imageUrl={image.url} />}
       <div className="car-text-area">
         <div className="car-title-area">
-          <h4 className="car-title">{name.title[0].text.content}</h4>
-          <h4 className="car-price">{`£${price.number}`}</h4>
+          {name && <h4 className="car-title">{name.title[0]?.text.content}</h4>}
+          {price && <h4 className="car-price">{`£${price.number}`}</h4>}
         </div>
         <div className="car-chip-container">
-          <Chip>{`${mileage.number} miles`}</Chip>
-          <Chip>{`${reg.select.name} reg`}</Chip>
+          {mileage && <Chip>{`${mileage.number} miles`}</Chip>}
+          {reg && <Chip>{`${reg.select.name} reg`}</Chip>}
         </div>
       </div>
     </CarWrapper>

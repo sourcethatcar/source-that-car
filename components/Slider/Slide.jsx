@@ -74,11 +74,11 @@ export const Slide = ({ content: { brandLogo, author, text }, offset }) => {
           <div style={{ paddingBottom: "1rem" }}>
             <Avatar>
               {/* <img src={profileImg} alt={author} /> */}
-              <BrandIcon iconName={brandLogo} />
+              {brandLogo && <BrandIcon iconName={brandLogo} />}
             </Avatar>
           </div>
-          <p className="slide-text">{`"${text}"`}</p>
-          <h5 className="slide-author">{author}</h5>
+          {text && <p className="slide-text">{`"${text}"`}</p>}
+          {author && <h5 className="slide-author">{author}</h5>}
         </div>
       </div>
     </SlideWrapper>
