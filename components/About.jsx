@@ -102,7 +102,8 @@ export const About = () => {
               </a>
               , our founding partner, has over 30 years of knowledge and
               experience within the automotive industry. This not only ensures
-              that we get you the right car but also at the possible best price.
+              that we get you the right car, but also at the possible best
+              price.
             </Description>
             <Description title="Family Run Business" icon={<FaUsers />}>
               We are based in Tonbridge, Kent. Not only do we supply new and
