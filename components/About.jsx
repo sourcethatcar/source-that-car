@@ -102,7 +102,7 @@ export const About = () => {
               </a>
               , our founding partner, has over 30 years of knowledge and
               experience within the automotive industry. This not only ensures
-              that we get you the right car, but also at the possible best
+              that we get you the right car, but also at the best possible
               price.
             </Description>
             <Description title="Family Run Business" icon={<FaUsers />}>
